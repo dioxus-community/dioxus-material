@@ -325,7 +325,7 @@ dependencies = [
 [[package]]
 name = "dioxus-resize-observer"
 version = "0.1.0"
-source = "git+https://github.com/dioxus-community/dioxus-resize-observer#ad92eec9e93a5d2e682bc4887a8c785859a31dde"
+source = "git+https://github.com/dioxus-community/dioxus-resize-observer#03d468671e5d755ea3dea767c0b793b2ff7c33da"
 dependencies = [
  "dioxus",
  "dioxus-signals",

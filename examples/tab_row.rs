@@ -1,11 +1,9 @@
 use dioxus::prelude::*;
-use dioxus_material::Button;
+use dioxus_material::TabRow;
 
 fn app(cx: Scope) -> Element {
     render!(
-        div {
-            Button { onclick: |_| log::info!("clicked!"), "Click me!" }
-        }
+        div { TabRow { tabs: cx.bump().alloc([render!("Tab 1"), render!("Tab 2")]) } }
     )
 }
 
