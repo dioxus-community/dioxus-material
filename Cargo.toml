@@ -1,0 +1,22 @@
+[package]
+name = "dioxus-material"
+description = "Animation library for Dioxus"
+version = "0.1.0"
+edition = "2021"
+license = "MIT OR Apache-2.0"
+
+[dependencies]
+async-channel = "1.9.0"
+dioxus = { git = "https://github.com/ealmloff/dioxus", branch = "fix-signals-outside-of-runtime" }
+dioxus-web = { git = "https://github.com/ealmloff/dioxus", branch = "fix-signals-outside-of-runtime" }
+dioxus-signals = { git = "https://github.com/ealmloff/dioxus", branch = "fix-signals-outside-of-runtime" }
+futures = "0.3.28"
+interpolation = "0.3.0"
+js-sys = "0.3.64"
+log = "0.4.20"
+dioxus-logger = "0.4.1"
+wasm-bindgen = "0.2.87"
+web-sys = "0.3.64"
+dioxus-use-mounted = { git = "https://github.com/matthunz/dioxus-use-mounted" }
+dioxus-spring = { path = "../dioxus-spring" }
+dioxus-resize-observer = { git = "https://github.com/dioxus-community/dioxus-resize-observer" }
