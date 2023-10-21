@@ -94,13 +94,7 @@ fn TabRowItem<'a>(cx: Scope<'a, TabRowItemProps<'a>>) -> Element<'a> {
             margin: 0,
             padding: 0,
             onmounted: move |event| mounted.onmounted(event),
-            Ripple {
-                onclick: move |_| {
-                    cx.props.selected.set(idx);
-                    log::info!("click")
-                },
-                &cx.props.children
-            }
+            Ripple { onclick: move |_| cx.props.selected.set(idx), &cx.props.children }
         }
     )
 }

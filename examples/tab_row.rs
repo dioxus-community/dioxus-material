@@ -3,16 +3,14 @@ use dioxus_material::{TabRow, Tab};
 
 fn app(cx: Scope) -> Element {
     render!(
-        div {
-            TabRow {
-                tabs: cx
-                    .bump()
-                    .alloc([
-                        render!(Tab { "Tab 1" }),
-                        render!(Tab { "Tab 2" }),
-                        render!(Tab { "Tab 3" }),
-                    ])
-            }
+        TabRow {
+            tabs: cx
+                .bump()
+                .alloc([
+                    render!(Tab { "Tab 1" }),
+                    render!(Tab { "Tab 2" }),
+                    render!(Tab { "Tab 3" }),
+                ])
         }
     )
 }

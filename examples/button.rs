@@ -3,9 +3,7 @@ use dioxus_material::Button;
 
 fn app(cx: Scope) -> Element {
     render!(
-        div {
-            Button { onclick: |_| log::info!("clicked!"), "Click me!" }
-        }
+        Button { onclick: |_| log::info!("clicked!"), "Click me!" }
     )
 }
 
