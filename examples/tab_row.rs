@@ -4,6 +4,7 @@ use dioxus_material::{TabRow, Tab};
 fn app(cx: Scope) -> Element {
     render!(
         TabRow {
+            onselect: |idx| log::info!("{}", idx),
             tabs: cx
                 .bump()
                 .alloc([

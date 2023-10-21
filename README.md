@@ -2,10 +2,11 @@
 
 ```rs
 Button { onclick: |_| log::info!("clicked!"), "Click me!" }
-```
 
-```rs
+TextButton { onclick: |_| log::info!("clicked!"), "Click me!" }
+
 TabRow {
+    onselect: |idx| log::info!("{}", idx),
     tabs: cx
         .bump()
         .alloc([
