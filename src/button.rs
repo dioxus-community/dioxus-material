@@ -1,21 +1,29 @@
+use crate::{use_theme, Ripple};
 use dioxus::prelude::*;
-use crate::Ripple;
 
 #[component]
 pub fn Button<'a>(
     cx: Scope<'a>,
     onclick: EventHandler<'a, Event<MouseData>>,
     children: Element<'a>,
+    background_color: Option<&'a str>,
+    border_radius: Option<&'a str>,
+    height: Option<&'a str>,
 ) -> Element<'a> {
+    let theme = use_theme(cx);
+    let background_color = background_color.unwrap_or(&theme.primary_color);
+    let border_radius = border_radius.unwrap_or(&theme.border_radius);
+    let height = height.unwrap_or("50px");
+
     render!(
         div {
             display: "inline-block",
             position: "relative",
-            height: "50px",
-            line_height: "50px",
+            height: "{height}",
+            line_height: "{height}",
             color: "#fff",
-            background: "#416529",
-            border_radius: "25px",
+            background: "{background_color}",
+            border_radius: "{border_radius}",
             overflow: "hidden",
             cursor: "pointer",
             Ripple { onclick: move |event| onclick.call(event),
@@ -38,15 +46,23 @@ pub fn TextButton<'a>(
     cx: Scope<'a>,
     onclick: EventHandler<'a, Event<MouseData>>,
     children: Element<'a>,
+    border_radius: Option<&'a str>,
+    color: Option<&'a str>,
+    height: Option<&'a str>,
 ) -> Element<'a> {
+    let theme = use_theme(cx);
+    let color = color.unwrap_or(&theme.primary_color);
+    let border_radius = border_radius.unwrap_or(&theme.border_radius);
+    let height = height.unwrap_or("40px");
+
     render!(
         div {
             display: "inline-block",
             position: "relative",
-            height: "40px",
-            line_height: "40px",
-            border_radius: "25px",
-            color: "#416529",
+            height: "{height}",
+            line_height: "{height}",
+            border_radius: "{border_radius}",
+            color: "{color}",
             font_weight: "bold",
             overflow: "hidden",
             cursor: "pointer",

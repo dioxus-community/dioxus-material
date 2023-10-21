@@ -1,6 +1,8 @@
 # Dioxus-material
 
 ```rs
+use_theme_provider(cx, Theme::default());
+
 Button { onclick: |_| log::info!("clicked!"), "Click me!" }
 
 TextButton { onclick: |_| log::info!("clicked!"), "Click me!" }
