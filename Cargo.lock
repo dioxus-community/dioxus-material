@@ -306,7 +306,6 @@ dependencies = [
 name = "dioxus-material"
 version = "0.1.0"
 dependencies = [
- "async-channel",
  "dioxus",
  "dioxus-logger",
  "dioxus-resize-observer",
@@ -314,12 +313,7 @@ dependencies = [
  "dioxus-spring",
  "dioxus-use-mounted",
  "dioxus-web",
- "futures",
- "interpolation",
- "js-sys",
  "log",
- "wasm-bindgen",
- "web-sys",
 ]
 
 [[package]]

@@ -9,6 +9,7 @@ pub fn Ripple<'a>(
     cx: Scope<'a>,
     onclick: EventHandler<'a, Event<MouseData>>,
     children: Element<'a>,
+    duration: Option<Duration>,
 ) -> Element<'a> {
     let is_pressed = use_state(cx, || false);
 
@@ -18,6 +19,9 @@ pub fn Ripple<'a>(
 
     let (spring_ref, value_ref) = use_spring_signal(cx, [0f32; 2]);
     let animated_ref = use_mounted(cx);
+
+    let duration = duration.unwrap_or(Duration::from_millis(200));
+
     use_animated(cx, animated_ref, value_ref, |[size, opacity]| {
         format!(
             r"
@@ -43,20 +47,20 @@ pub fn Ripple<'a>(
             cursor: "pointer",
             onmounted: move |event| container_ref.onmounted(event),
             onmousedown: move |_| {
-                spring_ref.animate([size as _, 1.], Duration::from_millis(200));
+                spring_ref.animate([size as _, 1.], duration);
                 is_pressed.set(true)
             },
             onmouseup: move |event| {
                 if **is_pressed {
-                    spring_ref.queue([size as _, 0.], Duration::from_millis(200));
-                    spring_ref.queue([0., 0.], Duration::from_millis(0));
+                    spring_ref.queue([size as _, 0.], duration);
+                    spring_ref.queue([0., 0.], Duration::ZERO);
                     onclick.call(event);
                     is_pressed.set(false)
                 }
             },
             onmouseleave: move |_| {
                 if **is_pressed {
-                    spring_ref.animate([0., 0.], Duration::from_millis(200));
+                    spring_ref.animate([0., 0.], duration);
                     is_pressed.set(false)
                 }
             },

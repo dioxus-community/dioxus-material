@@ -73,15 +73,11 @@ fn TabRowItem<'a>(
     let sizes = *sizes;
     dioxus_signals::use_effect(cx, move || {
         if let Some(content_rect) = &*resize.read() {
-            log::info!("{} {}", content_rect.left(), content_rect.width());
-
             sizes
                 .write()
                 .entry(idx)
                 .and_modify(|rect| *rect = content_rect.clone())
                 .or_insert(content_rect.clone());
-
-            log::info!("update");
         }
     });
 
