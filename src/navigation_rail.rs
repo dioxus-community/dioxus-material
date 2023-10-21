@@ -21,7 +21,13 @@ pub fn NavigationRail<'a>(cx: Scope<'a>, children: Element<'a>) -> Element<'a> {
 }
 
 #[component]
-pub fn NavigationRailItem<'a>(cx: Scope<'a>, icon: Element<'a>, label: Element<'a>, is_selected: bool, onselect: EventHandler<'a, MouseEvent>) -> Element<'a> {
+pub fn NavigationRailItem<'a>(
+    cx: Scope<'a>,
+    icon: Element<'a>,
+    label: Element<'a>,
+    is_selected: bool,
+    onselect: EventHandler<'a, MouseEvent>,
+) -> Element<'a> {
     let theme = use_theme(cx);
 
     render!(

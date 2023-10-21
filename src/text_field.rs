@@ -1,3 +1,4 @@
+use crate::use_theme;
 use dioxus::prelude::*;
 use dioxus_spring::{use_animated, use_spring};
 use dioxus_use_mounted::use_mounted;
@@ -9,8 +10,11 @@ pub fn TextField<'a>(
     label: &'a str,
     value: &'a str,
     onchange: EventHandler<'a, FormEvent>,
+    background: Option<&'a str>,
+    font_size: Option<f32>,
 ) -> Element<'a> {
     let is_populated = use_state(cx, || !value.is_empty());
+    let theme = use_theme(cx);
 
     let spring = use_spring(
         cx,
@@ -35,11 +39,14 @@ pub fn TextField<'a>(
         )
     });
 
+    let background = background.unwrap_or(&theme.background_color);
+    let font_size = font_size.unwrap_or(theme.label_medium);
+
     render!(
         div {
             position: "relative",
             width: "200px",
-            background: "#eeeeee",
+            background: "{background}",
             font_family: "sans-serif",
             border_bottom: "2px solid #999",
             label { onmounted: move |event| mounted.onmounted(event), "{label}" }
@@ -50,7 +57,7 @@ pub fn TextField<'a>(
                 value: *value,
                 padding: "10px 20px",
                 padding_top: "30px",
-                font_size: "16px",
+                font_size: "{font_size}px",
                 height: "34px",
                 border: "none",
                 outline: "none",
