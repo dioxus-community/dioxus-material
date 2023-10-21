@@ -15,3 +15,6 @@ pub use theme::{use_theme, use_theme_provider, Theme};
 
 mod text_field;
 pub use text_field::TextField;
+
+mod navigation_rail;
+pub use navigation_rail::{NavigationRail, NavigationRailItem};
