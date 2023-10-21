@@ -4,10 +4,20 @@ use dioxus::prelude::*;
 #[component]
 pub fn Button<'a>(
     cx: Scope<'a>,
-    onclick: EventHandler<'a, Event<MouseData>>,
+
+    /// Handler for button press events.
+    onpress: EventHandler<'a, Event<MouseData>>,
+
+    /// Label child element.
     children: Element<'a>,
+
+    /// Background color of the container (optional).
     background_color: Option<&'a str>,
+
+    /// Border radiusof the container (optional).
     border_radius: Option<&'a str>,
+
+    /// Height of the container (optional).
     height: Option<&'a str>,
 ) -> Element<'a> {
     let theme = use_theme(cx);
@@ -26,7 +36,7 @@ pub fn Button<'a>(
             border_radius: "{border_radius}",
             overflow: "hidden",
             cursor: "pointer",
-            Ripple { onclick: move |event| onclick.call(event),
+            Ripple { onclick: move |event| onpress.call(event),
                 div {
                     position: "relative",
                     z_index: 9,
@@ -44,10 +54,20 @@ pub fn Button<'a>(
 #[component]
 pub fn TextButton<'a>(
     cx: Scope<'a>,
-    onclick: EventHandler<'a, Event<MouseData>>,
+
+    /// Handler for button press events.
+    onpress: EventHandler<'a, Event<MouseData>>,
+
+    /// Label child element.
     children: Element<'a>,
+
+    /// Border radiusof the container (optional).
     border_radius: Option<&'a str>,
+
+    /// Text color (optional).
     color: Option<&'a str>,
+
+    /// Height of the container (optional).
     height: Option<&'a str>,
 ) -> Element<'a> {
     let theme = use_theme(cx);
@@ -66,7 +86,7 @@ pub fn TextButton<'a>(
             font_weight: "bold",
             overflow: "hidden",
             cursor: "pointer",
-            Ripple { onclick: move |event| onclick.call(event),
+            Ripple { onclick: move |event| onpress.call(event),
                 div {
                     position: "relative",
                     z_index: 9,
