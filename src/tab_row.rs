@@ -12,7 +12,7 @@ pub fn TabRow<'a>(
     tabs: &'a [Element<'a>],
     onselect: EventHandler<'a, usize>,
 ) -> Element<'a> {
-    let sizes = use_signal(cx, || HashMap::new());
+    let sizes = use_signal(cx, HashMap::new);
     let selected = use_state(cx, || 0);
 
     let width = sizes

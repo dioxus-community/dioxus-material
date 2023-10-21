@@ -23,7 +23,7 @@ pub fn TextField<'a>(
         } else {
             [20., 16., 24.]
         },
-        Duration::from_millis(200),
+        Duration::from_millis(50),
     );
 
     let mounted = use_mounted(cx);

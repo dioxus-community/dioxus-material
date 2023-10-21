@@ -5,7 +5,7 @@ fn app(cx: Scope) -> Element {
     use_theme_provider(cx, Theme::default());
 
     render!(
-        NavigationRail { 
+        NavigationRail {
             NavigationRailItem {
                 icon: render!("A"),
                 label: render!("All files"),

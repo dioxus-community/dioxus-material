@@ -6,6 +6,7 @@ pub struct Theme {
     pub background_color: Cow<'static, str>,
     pub secondary_container_color: Cow<'static, str>,
     pub border_radius: Cow<'static, str>,
+    pub label_small: f32,
     pub label_medium: f32,
 }
 
@@ -16,6 +17,7 @@ impl Default for Theme {
             background_color: Cow::Borrowed("#eeeeee"),
             secondary_container_color: Cow::Borrowed("#E8DEF8"),
             border_radius: Cow::Borrowed("25px"),
+            label_small: 12.,
             label_medium: 16.,
         }
     }

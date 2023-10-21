@@ -1,6 +1,5 @@
-use dioxus::prelude::*;
-
 use crate::use_theme;
+use dioxus::prelude::*;
 
 #[component]
 pub fn NavigationRail<'a>(cx: Scope<'a>, children: Element<'a>) -> Element<'a> {
@@ -49,7 +48,7 @@ pub fn NavigationRailItem<'a>(
                 background: if *is_selected { &theme.secondary_container_color } else { "" },
                 icon
             }
-            div { margin_top: "5px", font_size: "12px", line_height: "16px", label }
+            div { margin_top: "5px", font_size: "{theme.label_small}px", line_height: "16px", label }
         }
     )
 }
