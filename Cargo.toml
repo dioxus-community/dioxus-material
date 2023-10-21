@@ -12,7 +12,5 @@ dioxus-signals = { git = "https://github.com/ealmloff/dioxus", branch = "fix-sig
 dioxus-use-mounted = { git = "https://github.com/matthunz/dioxus-use-mounted" }
 dioxus-spring = { git = "https://github.com/matthunz/dioxus-spring" }
 dioxus-resize-observer = { git = "https://github.com/dioxus-community/dioxus-resize-observer" }
-
-[dev-dependencies]
 log = "0.4.20"
 dioxus-logger = "0.4.1"

@@ -3,14 +3,14 @@ use std::{borrow::Cow, rc::Rc};
 
 pub struct Theme {
     pub primary_color: Cow<'static, str>,
-    pub border_radius: Cow<'static, str>
+    pub border_radius: Cow<'static, str>,
 }
 
 impl Default for Theme {
     fn default() -> Self {
         Self {
             primary_color: Cow::Borrowed("#416529"),
-            border_radius: Cow::Borrowed("25px")
+            border_radius: Cow::Borrowed("25px"),
         }
     }
 }

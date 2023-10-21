@@ -17,4 +17,10 @@ TabRow {
             render!(Tab { "Tab 3" }),
         ])
 }
+
+TextField {
+    label: "Text field",
+    value: "{value}",
+    onchange: move |event: FormEvent| value.set(event.value.clone())
+}
 ```

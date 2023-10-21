@@ -1,5 +1,5 @@
 use dioxus::prelude::*;
-use dioxus_material::{Button, TextButton, use_theme_provider, Theme};
+use dioxus_material::{use_theme_provider, Button, TextButton, Theme};
 
 fn app(cx: Scope) -> Element {
     use_theme_provider(cx, Theme::default());
