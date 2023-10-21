@@ -18,5 +18,5 @@ dioxus-logger = "0.4.1"
 wasm-bindgen = "0.2.87"
 web-sys = "0.3.64"
 dioxus-use-mounted = { git = "https://github.com/matthunz/dioxus-use-mounted" }
-dioxus-spring = { path = "../dioxus-spring" }
+dioxus-spring = { git = "https://github.com/matthunz/dioxus-spring" }
 dioxus-resize-observer = { git = "https://github.com/dioxus-community/dioxus-resize-observer" }

@@ -361,6 +361,7 @@ dependencies = [
 [[package]]
 name = "dioxus-spring"
 version = "0.1.0"
+source = "git+https://github.com/matthunz/dioxus-spring#5ab08af9f7f894d6db114fde9b01c3a207e6dce5"
 dependencies = [
  "async-channel",
  "dioxus",
