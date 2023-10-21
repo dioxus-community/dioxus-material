@@ -1,9 +1,10 @@
 use dioxus::prelude::*;
-use dioxus_material::Button;
+use dioxus_material::{Button, TextButton};
 
 fn app(cx: Scope) -> Element {
     render!(
         Button { onclick: |_| log::info!("clicked!"), "Click me!" }
+        TextButton { onclick: |_| log::info!("clicked!"), "Click me!" }
     )
 }
 

@@ -4,14 +4,12 @@ use dioxus_spring::{use_animated, use_spring_signal};
 use dioxus_use_mounted::use_mounted;
 use std::time::Duration;
 
-#[derive(Props)]
-pub struct RippleProps<'a> {
+#[component]
+pub fn Ripple<'a>(
+    cx: Scope<'a>,
     onclick: EventHandler<'a, Event<MouseData>>,
     children: Element<'a>,
-}
-
-#[component]
-pub fn Ripple<'a>(cx: Scope<'a, RippleProps<'a>>) -> Element<'a> {
+) -> Element<'a> {
     let is_pressed = use_state(cx, || false);
 
     let container_ref = use_mounted(cx);
@@ -52,16 +50,18 @@ pub fn Ripple<'a>(cx: Scope<'a, RippleProps<'a>>) -> Element<'a> {
                 if **is_pressed {
                     spring_ref.queue([size as _, 0.], Duration::from_millis(200));
                     spring_ref.queue([0., 0.], Duration::from_millis(0));
-                    cx.props.onclick.call(event);
+                    onclick.call(event);
                     is_pressed.set(false)
                 }
             },
             onmouseleave: move |_| {
-                spring_ref.animate([0., 0.], Duration::from_millis(200));
-                is_pressed.set(false)
+                if **is_pressed {
+                    spring_ref.animate([0., 0.], Duration::from_millis(200));
+                    is_pressed.set(false)
+                }
             },
             div { onmounted: move |event| animated_ref.onmounted(event) }
-            div { position: "relative", z_index: 9, user_select: "none", webkit_user_select: "none", &cx.props.children }
+            div { position: "relative", z_index: 9, user_select: "none", webkit_user_select: "none", children }
         }
     )
 }

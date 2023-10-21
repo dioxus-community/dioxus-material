@@ -1,5 +1,5 @@
 mod button;
-pub use button::Button;
+pub use button::{Button, TextButton};
 
 mod ripple;
 pub use ripple::Ripple;
