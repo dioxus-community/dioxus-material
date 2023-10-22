@@ -3,8 +3,8 @@ use dioxus_material::{NavigationRail, NavigationRailItem, Theme};
 
 fn app(cx: Scope) -> Element {
     render!(
-        Theme {
-            NavigationRail {
+        Theme { 
+            NavigationRail { 
                 NavigationRailItem {
                     icon: render!("A"),
                     label: render!("All files"),

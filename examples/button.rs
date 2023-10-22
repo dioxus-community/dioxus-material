@@ -3,7 +3,7 @@ use dioxus_material::{Button, TextButton, Theme};
 
 fn app(cx: Scope) -> Element {
     render!(
-        Theme {
+        Theme { 
             Button { onpress: |_| log::info!("clicked!"), "Click me!" }
             TextButton { onpress: |_| log::info!("clicked!"), "Click me!" }
         }

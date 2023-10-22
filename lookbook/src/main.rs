@@ -77,10 +77,7 @@ fn Home(cx: Scope) -> Element {
 }
 
 fn app(cx: Scope) -> Element {
-    render!(LookBook {
-        home: Home,
-        previews: [ButtonPreview, TextButtonPreview, TextFieldPreview]
-    })
+    render!(LookBook { home: Home, previews: [ButtonPreview, TextButtonPreview, TextFieldPreview] })
 }
 
 fn main() {

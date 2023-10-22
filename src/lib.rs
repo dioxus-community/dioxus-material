@@ -1,6 +1,12 @@
 mod button;
 pub use button::{Button, ButtonProps, TextButton, TextButtonProps};
 
+mod icon;
+pub use icon::{IconFont, Icon};
+
+mod icon_kind;
+pub use icon_kind::IconKind;
+
 mod ripple;
 pub use ripple::Ripple;
 
