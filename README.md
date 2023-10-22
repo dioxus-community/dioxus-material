@@ -8,7 +8,7 @@
     <img src="https://img.shields.io/badge/docs-latest-blue.svg?style=flat-square"
       alt="docs.rs docs" />
   </a>
-    <a href="https://matthunz.github.io/dioxus-material/lookbook/">
+    <a href="https://matthunz.github.io/">
     <img src="https://img.shields.io/badge/lookbook%20%F0%9F%91%80-purple"
       alt="lookbook docs" />
   </a>
