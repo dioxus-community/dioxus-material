@@ -25,26 +25,28 @@
 <br>
 
 ```rs
-use_theme_provider(cx, Theme::default());
+Theme {
+  Button { onclick: |_| log::info!("clicked!"), "Click me!" }
 
-Button { onclick: |_| log::info!("clicked!"), "Click me!" }
+  Icon { kind: IconKind::Home, is_filled: true, size: 100. }
 
-TextButton { onclick: |_| log::info!("clicked!"), "Click me!" }
+  TextButton { onclick: |_| log::info!("clicked!"), "Click me!" }
 
-TabRow {
-    onselect: |idx| log::info!("{}", idx),
-    tabs: cx
-        .bump()
-        .alloc([
-            render!(Tab { "Tab 1" }),
-            render!(Tab { "Tab 2" }),
-            render!(Tab { "Tab 3" }),
-        ])
-}
+  TabRow {
+      onselect: |idx| log::info!("{}", idx),
+      tabs: cx
+          .bump()
+          .alloc([
+              render!(Tab { "Tab 1" }),
+              render!(Tab { "Tab 2" }),
+              render!(Tab { "Tab 3" }),
+          ])
+  }
 
-TextField {
-    label: "Text field",
-    value: "{value}",
-    onchange: move |event: FormEvent| value.set(event.value.clone())
+  TextField {
+      label: "Text field",
+      value: "{value}",
+      onchange: move |event: FormEvent| value.set(event.value.clone())
+  }
 }
 ```
