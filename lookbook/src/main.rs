@@ -1,5 +1,5 @@
 use dioxus::prelude::*;
-use dioxus_material::{Button, TextField, TextButton};
+use dioxus_material::{Button, TextButton, TextField};
 use lookbook::{register, Look, LookBook};
 
 #[component]
@@ -13,7 +13,7 @@ fn ButtonPage(cx: Scope) -> Element {
                 TextField { label : "Label", value : label, onchange : move | event : FormEvent |
                 label.set(event.data.value.clone()) }
             ),
-            Button { onclick: |_| {}, &*** label }
+            Button { onpress: |_| {}, &*** label }
         }
     )
 }
@@ -29,7 +29,7 @@ fn TextButtonPage(cx: Scope) -> Element {
                 TextField { label : "Label", value : label, onchange : move | event : FormEvent |
                 label.set(event.data.value.clone()) }
             ),
-            TextButton { onclick: |_| {}, &*** label }
+            TextButton { onpress: |_| {}, &*** label }
         }
     )
 }
@@ -60,7 +60,13 @@ fn app(cx: Scope) -> Element {
     register("TextButton", TextButtonPage);
     register("TextField", TextFieldPage);
 
-    render!( LookBook {} )
+    #[cfg(feature = "pages")]
+    let prefix = "/dioxus-material/lookbook";
+
+    #[cfg(not(feature = "pages"))]
+    let prefix = "";
+
+    render!( LookBook { prefix: prefix } )
 }
 
 fn main() {

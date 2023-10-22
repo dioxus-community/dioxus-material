@@ -3,11 +3,15 @@ name = "dioxus-material-lookbook"
 version = "0.1.0"
 edition = "2021"
 
+[features]
+pages = []
+
 [dependencies]
 dioxus = { git = "https://github.com/ealmloff/dioxus", branch = "fix-signals-outside-of-runtime" }
 dioxus-web = { git = "https://github.com/ealmloff/dioxus", branch = "fix-signals-outside-of-runtime" }
 dioxus-signals = { git = "https://github.com/ealmloff/dioxus", branch = "fix-signals-outside-of-runtime" }
 dioxus-router = { git = "https://github.com/ealmloff/dioxus", branch = "fix-signals-outside-of-runtime", features = ["web"] }
-lookbook = { git = "https://github.com/matthunz/lookbook" }
+# lookbook = { git = "https://github.com/matthunz/lookbook" }
+lookbook = { path = "../../lookbook" }
 dioxus-material = { git = "https://github.com/matthunz/dioxus-material" }
 
