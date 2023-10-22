@@ -13,7 +13,7 @@ pub struct Theme {
 impl Default for Theme {
     fn default() -> Self {
         Self {
-            primary_color: Cow::Borrowed("#416529"),
+            primary_color: Cow::Borrowed("#6750A4"),
             background_color: Cow::Borrowed("#eeeeee"),
             secondary_container_color: Cow::Borrowed("#E8DEF8"),
             border_radius: Cow::Borrowed("25px"),
