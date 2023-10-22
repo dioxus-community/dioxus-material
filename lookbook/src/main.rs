@@ -62,10 +62,18 @@ fn TextFieldPreview(cx: Scope) -> Element {
 #[component]
 fn Home(cx: Scope) -> Element {
     render!(
-        div {
-            padding: "20px",
+        div { padding: "20px",
             h1 { "Dioxus Material" }
             h5 { "Material You design library for dioxus." }
+            a { href: "https://github.com/matthunz/dioxus-material", "Github" }
+
+            div {
+                margin_top: "20px",
+                "Made with "
+                a { href: "https://github.com/matthunz/lookbook", "Lookbook" }
+                "."
+            }
+            
         }
     )
 }

@@ -346,7 +346,7 @@ dependencies = [
 [[package]]
 name = "dioxus-material"
 version = "0.1.0"
-source = "git+https://github.com/matthunz/dioxus-material#a435fa3dc97cbbb5be8ef6f414440640e64e2933"
+source = "git+https://github.com/matthunz/dioxus-material#fad02e8d8f8c27295ee6bfe547f5a1a704fdbeb0"
 dependencies = [
  "dioxus",
  "dioxus-logger",
@@ -1017,7 +1017,7 @@ checksum = "b3bd0dd2cd90571056fdb71f6275fada10131182f84899f4b2a916e565d81d86"
 [[package]]
 name = "lookbook"
 version = "0.1.0"
-source = "git+https://github.com/matthunz/lookbook#f4d2cd734f30a379cc147da2d9d763fcc5258c9b"
+source = "git+https://github.com/matthunz/lookbook#9ba933a80f13044f4776434081c455e08b3d7606"
 dependencies = [
  "dioxus",
  "dioxus-material 0.1.0 (git+https://github.com/matthunz/dioxus-material)",
@@ -1033,7 +1033,7 @@ dependencies = [
 [[package]]
 name = "lookbook-macros"
 version = "0.1.0"
-source = "git+https://github.com/matthunz/lookbook#f4d2cd734f30a379cc147da2d9d763fcc5258c9b"
+source = "git+https://github.com/matthunz/lookbook#9ba933a80f13044f4776434081c455e08b3d7606"
 dependencies = [
  "quote",
  "syn",
