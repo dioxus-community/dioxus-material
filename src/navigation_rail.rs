@@ -12,7 +12,7 @@ pub fn NavigationRail<'a>(cx: Scope<'a>, children: Element<'a>) -> Element<'a> {
                 width: "50px",
                 list_style: "none",
                 margin: 0,
-                padding: 0,
+                padding: "0 10px",
                 children
             }
         }

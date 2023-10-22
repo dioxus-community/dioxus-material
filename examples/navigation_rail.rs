@@ -1,19 +1,25 @@
 use dioxus::prelude::*;
-use dioxus_material::{NavigationRail, NavigationRailItem, Theme};
+use dioxus_material::{NavigationRail, NavigationRailItem, Theme, Icon, IconKind, IconFont};
 
 fn app(cx: Scope) -> Element {
     render!(
+        IconFont {}
         Theme { 
             NavigationRail { 
                 NavigationRailItem {
-                    icon: render!("A"),
+                    icon: render!(Icon { kind : IconKind::Home }),
                     label: render!("All files"),
                     is_selected: false,
                     onselect: |_| {}
                 }
-                NavigationRailItem { icon: render!("B"), label: render!("Recent"), is_selected: true, onselect: |_| {} }
                 NavigationRailItem {
-                    icon: render!("C"),
+                    icon: render!(Icon { kind : IconKind::History }),
+                    label: render!("Recent"),
+                    is_selected: true,
+                    onselect: |_| {}
+                }
+                NavigationRailItem {
+                    icon: render!(Icon { kind : IconKind::PhotoAlbum }),
                     label: render!("Photos"),
                     is_selected: false,
                     onselect: |_| {}
