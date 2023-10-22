@@ -79,15 +79,8 @@ fn Home(cx: Scope) -> Element {
 }
 
 fn app(cx: Scope) -> Element {
-    #[cfg(feature = "pages")]
-    let prefix = "/dioxus-material/lookbook";
-
-    #[cfg(not(feature = "pages"))]
-    let prefix = "";
-
     render!(
         LookBook {
-            prefix: prefix,
             home: Home,
             previews: [ButtonPreview, TextButtonPreview, TextFieldPreview]
         }

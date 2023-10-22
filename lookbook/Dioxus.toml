@@ -4,7 +4,6 @@ default_platform = "web"
 
 [web.app]
 title = "Dioxus Material"
-base_path = "dioxus-material/lookbook"
 
 [web.watcher]
 reload_html = true
