@@ -11,7 +11,6 @@ dioxus = { git = "https://github.com/ealmloff/dioxus", branch = "fix-signals-out
 dioxus-web = { git = "https://github.com/ealmloff/dioxus", branch = "fix-signals-outside-of-runtime" }
 dioxus-signals = { git = "https://github.com/ealmloff/dioxus", branch = "fix-signals-outside-of-runtime" }
 dioxus-router = { git = "https://github.com/ealmloff/dioxus", branch = "fix-signals-outside-of-runtime", features = ["web"] }
-# lookbook = { git = "https://github.com/matthunz/lookbook" }
-lookbook = { path = "../../lookbook" }
+lookbook = { git = "https://github.com/matthunz/lookbook" }
 dioxus-material = { git = "https://github.com/matthunz/dioxus-material" }
 

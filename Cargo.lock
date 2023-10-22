@@ -346,7 +346,7 @@ dependencies = [
 [[package]]
 name = "dioxus-material"
 version = "0.1.0"
-source = "git+https://github.com/matthunz/dioxus-material#da4bbba773ef3317a5f0357fa6ebe6f90b6fb11a"
+source = "git+https://github.com/matthunz/dioxus-material#a435fa3dc97cbbb5be8ef6f414440640e64e2933"
 dependencies = [
  "dioxus",
  "dioxus-logger",
@@ -967,6 +967,26 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "a08173bc88b7955d1b3145aa561539096c421ac8debde8cbc3612ec635fee29b"
 
 [[package]]
+name = "linkme"
+version = "0.3.17"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "91ed2ee9464ff9707af8e9ad834cffa4802f072caad90639c583dd3c62e6e608"
+dependencies = [
+ "linkme-impl",
+]
+
+[[package]]
+name = "linkme-impl"
+version = "0.3.17"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "ba125974b109d512fccbc6c0244e7580143e460895dfd6ea7f8bbb692fd94396"
+dependencies = [
+ "proc-macro2",
+ "quote",
+ "syn",
+]
+
+[[package]]
 name = "linux-raw-sys"
 version = "0.4.10"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -997,6 +1017,7 @@ checksum = "b3bd0dd2cd90571056fdb71f6275fada10131182f84899f4b2a916e565d81d86"
 [[package]]
 name = "lookbook"
 version = "0.1.0"
+source = "git+https://github.com/matthunz/lookbook#f4d2cd734f30a379cc147da2d9d763fcc5258c9b"
 dependencies = [
  "dioxus",
  "dioxus-material 0.1.0 (git+https://github.com/matthunz/dioxus-material)",
@@ -1005,6 +1026,17 @@ dependencies = [
  "dioxus-signals",
  "dioxus-use-mounted",
  "dioxus-web",
+ "linkme",
+ "lookbook-macros",
+]
+
+[[package]]
+name = "lookbook-macros"
+version = "0.1.0"
+source = "git+https://github.com/matthunz/lookbook#f4d2cd734f30a379cc147da2d9d763fcc5258c9b"
+dependencies = [
+ "quote",
+ "syn",
 ]
 
 [[package]]

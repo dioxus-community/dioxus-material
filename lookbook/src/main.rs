@@ -1,25 +1,29 @@
 use dioxus::prelude::*;
-use dioxus_material::{Button, TextButton, TextField};
-use lookbook::{register, Look, LookBook};
+use dioxus_material::{use_theme, Button, TextButton, TextField};
+use lookbook::{preview, Look, LookBook};
 
-#[component]
-fn ButtonPage(cx: Scope) -> Element {
+#[preview]
+fn ButtonPreview(cx: Scope) -> Element {
     let label = use_state(cx, || String::from("Filled Button"));
+    let theme = use_theme(cx);
+    let background_color = use_state(cx, || theme.primary_color.to_string());
 
-    render!(
+    render! {
         Look {
             name: "Button",
-            controls: render!(
+            controls: render! {
                 TextField { label : "Label", value : label, onchange : move | event : FormEvent |
-                label.set(event.data.value.clone()) }
-            ),
-            Button { onpress: |_| {}, &*** label }
+                label.set(event.data.value.clone()) } TextField { label : "Background color", value :
+                background_color, onchange : move | event : FormEvent | background_color.set(event
+                .data.value.clone()) }
+            },
+            Button { background_color: background_color, onpress: |_| {}, &*** label }
         }
-    )
+    }
 }
 
-#[component]
-fn TextButtonPage(cx: Scope) -> Element {
+#[preview]
+fn TextButtonPreview(cx: Scope) -> Element {
     let label = use_state(cx, || String::from("Text Button"));
 
     render!(
@@ -34,8 +38,8 @@ fn TextButtonPage(cx: Scope) -> Element {
     )
 }
 
-#[component]
-fn TextFieldPage(cx: Scope) -> Element {
+#[preview]
+fn TextFieldPreview(cx: Scope) -> Element {
     let value = use_state(cx, || String::from("Text Field"));
     let label = use_state(cx, || String::from("Label"));
 
@@ -55,18 +59,31 @@ fn TextFieldPage(cx: Scope) -> Element {
     )
 }
 
-fn app(cx: Scope) -> Element {
-    register("Button", ButtonPage);
-    register("TextButton", TextButtonPage);
-    register("TextField", TextFieldPage);
+#[component]
+fn Home(cx: Scope) -> Element {
+    render!(
+        div {
+            padding: "20px",
+            h1 { "Dioxus Material" }
+            h5 { "Material You design library for dioxus." }
+        }
+    )
+}
 
+fn app(cx: Scope) -> Element {
     #[cfg(feature = "pages")]
     let prefix = "/dioxus-material/lookbook";
 
     #[cfg(not(feature = "pages"))]
     let prefix = "";
 
-    render!( LookBook { prefix: prefix } )
+    render!(
+        LookBook {
+            prefix: prefix,
+            home: Home,
+            previews: [ButtonPreview, TextButtonPreview, TextFieldPreview]
+        }
+    )
 }
 
 fn main() {
