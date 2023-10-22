@@ -12,16 +12,18 @@ pub fn TextField<'a>(
     onchange: EventHandler<'a, FormEvent>,
     background: Option<&'a str>,
     font_size: Option<f32>,
+    width: Option<&'a str>
 ) -> Element<'a> {
     let is_populated = use_state(cx, || !value.is_empty());
     let theme = use_theme(cx);
 
+    let font_size = font_size.unwrap_or(theme.label_medium);
     let spring = use_spring(
         cx,
         if **is_populated {
             [10f32, 12f32, 16f32]
         } else {
-            [20., 16., 24.]
+            [20., font_size, 24.]
         },
         Duration::from_millis(50),
     );
@@ -40,12 +42,13 @@ pub fn TextField<'a>(
     });
 
     let background = background.unwrap_or(&theme.background_color);
-    let font_size = font_size.unwrap_or(theme.label_medium);
+    let width = width.unwrap_or("200px");
 
     render!(
         div {
             position: "relative",
-            width: "200px",
+            display: "flex",
+            width: width,
             background: "{background}",
             font_family: "sans-serif",
             border_bottom: "2px solid #999",

@@ -14,7 +14,7 @@ pub fn Button<'a>(
     /// Background color of the container (optional).
     background_color: Option<&'a str>,
 
-    /// Border radiusof the container (optional).
+    /// Border radius of the container (optional).
     border_radius: Option<&'a str>,
 
     /// Height of the container (optional).
