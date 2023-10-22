@@ -1,7 +1,51 @@
 use dioxus::prelude::*;
 use std::{borrow::Cow, rc::Rc};
 
-pub struct Theme {
+#[component]
+pub fn Theme<'a>(
+    cx: Scope<'a>,
+
+    /// Primary color.
+    #[props(into, default = Cow::Borrowed("#6750A4"))]
+    primary_color: Cow<'static, str>,
+
+    /// Background color.
+    #[props(into, default = Cow::Borrowed("#eeeeee"))]
+    background_color: Cow<'static, str>,
+
+    /// Secondary container color.
+    #[props(into, default = Cow::Borrowed("#E8DEF8"))]
+    secondary_container_color: Cow<'static, str>,
+
+    /// Border radius.
+    #[props(into, default = Cow::Borrowed("25px"))]
+    border_radius: Cow<'static, str>,
+
+    /// Small label font size.
+    #[props(default = 12.)]
+    label_small: f32,
+
+    /// Medium label font size.
+    #[props(default = 16.)]
+    label_medium: f32,
+
+    children: Element<'a>,
+) -> Element<'a> {
+    use_context_provider(cx, move || {
+        Rc::new(UseTheme {
+            primary_color: primary_color.clone(),
+            background_color: background_color.clone(),
+            secondary_container_color: secondary_container_color.clone(),
+            border_radius: border_radius.clone(),
+            label_small: *label_small,
+            label_medium: *label_medium,
+        })
+    });
+
+    render!(children)
+}
+
+pub struct UseTheme {
     pub primary_color: Cow<'static, str>,
     pub background_color: Cow<'static, str>,
     pub secondary_container_color: Cow<'static, str>,
@@ -10,24 +54,7 @@ pub struct Theme {
     pub label_medium: f32,
 }
 
-impl Default for Theme {
-    fn default() -> Self {
-        Self {
-            primary_color: Cow::Borrowed("#6750A4"),
-            background_color: Cow::Borrowed("#eeeeee"),
-            secondary_container_color: Cow::Borrowed("#E8DEF8"),
-            border_radius: Cow::Borrowed("25px"),
-            label_small: 12.,
-            label_medium: 16.,
-        }
-    }
-}
-
-pub fn use_theme_provider<T>(cx: Scope<T>, theme: Theme) {
-    use_context_provider(cx, move || Rc::new(theme));
-}
-
-pub fn use_theme<T>(cx: Scope<T>) -> &Theme {
-    let rc: &Rc<Theme> = use_context(cx).unwrap();
+pub fn use_theme<T>(cx: Scope<T>) -> &UseTheme {
+    let rc: &Rc<UseTheme> = use_context(cx).unwrap();
     rc.as_ref()
 }

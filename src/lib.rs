@@ -11,7 +11,7 @@ mod tab_row;
 pub use tab_row::TabRow;
 
 mod theme;
-pub use theme::{use_theme, use_theme_provider, Theme};
+pub use theme::{use_theme, Theme, UseTheme};
 
 mod text_field;
 pub use text_field::TextField;

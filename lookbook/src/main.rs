@@ -67,24 +67,20 @@ fn Home(cx: Scope) -> Element {
             h5 { "Material You design library for dioxus." }
             a { href: "https://github.com/matthunz/dioxus-material", "Github" }
 
-            div {
-                margin_top: "20px",
+            div { margin_top: "20px",
                 "Made with "
                 a { href: "https://github.com/matthunz/lookbook", "Lookbook" }
                 "."
             }
-            
         }
     )
 }
 
 fn app(cx: Scope) -> Element {
-    render!(
-        LookBook {
-            home: Home,
-            previews: [ButtonPreview, TextButtonPreview, TextFieldPreview]
-        }
-    )
+    render!(LookBook {
+        home: Home,
+        previews: [ButtonPreview, TextButtonPreview, TextFieldPreview]
+    })
 }
 
 fn main() {

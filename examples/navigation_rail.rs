@@ -1,23 +1,23 @@
 use dioxus::prelude::*;
-use dioxus_material::{use_theme_provider, NavigationRail, NavigationRailItem, Theme};
+use dioxus_material::{NavigationRail, NavigationRailItem, Theme};
 
 fn app(cx: Scope) -> Element {
-    use_theme_provider(cx, Theme::default());
-
     render!(
-        NavigationRail {
-            NavigationRailItem {
-                icon: render!("A"),
-                label: render!("All files"),
-                is_selected: false,
-                onselect: |_| {}
-            }
-            NavigationRailItem { icon: render!("B"), label: render!("Recent"), is_selected: true, onselect: |_| {} }
-            NavigationRailItem {
-                icon: render!("C"),
-                label: render!("Photos"),
-                is_selected: false,
-                onselect: |_| {}
+        Theme {
+            NavigationRail {
+                NavigationRailItem {
+                    icon: render!("A"),
+                    label: render!("All files"),
+                    is_selected: false,
+                    onselect: |_| {}
+                }
+                NavigationRailItem { icon: render!("B"), label: render!("Recent"), is_selected: true, onselect: |_| {} }
+                NavigationRailItem {
+                    icon: render!("C"),
+                    label: render!("Photos"),
+                    is_selected: false,
+                    onselect: |_| {}
+                }
             }
         }
     )

@@ -1,15 +1,21 @@
 use dioxus::prelude::*;
-use dioxus_material::{Tab, TabRow};
+use dioxus_material::{Tab, TabRow, Theme};
 
 fn app(cx: Scope) -> Element {
-    render!(TabRow {
-        onselect: |idx| log::info!("{}", idx),
-        tabs: cx.bump().alloc([
-            render!(Tab { "Tab 1" }),
-            render!(Tab { "Tab 2" }),
-            render!(Tab { "Tab 3" }),
-        ])
-    })
+    render!(
+        Theme {
+            TabRow {
+                onselect: |idx| log::info!("{}", idx),
+                tabs: cx
+                    .bump()
+                    .alloc([
+                        render!(Tab { "Tab 1" }),
+                        render!(Tab { "Tab 2" }),
+                        render!(Tab { "Tab 3" }),
+                    ])
+            }
+        }
+    )
 }
 
 fn main() {
