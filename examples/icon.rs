@@ -5,6 +5,7 @@ fn app(cx: Scope) -> Element {
     render!(
         IconFont {}
         Icon { kind: IconKind::Search }
+        Icon { kind: IconKind::Home, is_filled: true, size: 100. }
     )
 }
 
