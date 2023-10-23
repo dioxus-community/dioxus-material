@@ -5,9 +5,9 @@ fn app(cx: Scope) -> Element {
     render!(
         Theme { 
             IconFont {}
-            div { display: "flex",
-                Chip { "Asset chip" }
-                Chip { is_selected: true, "Asset chip" }
+            div { display: "flex", gap: "10px",
+                Chip { onclick: |_| {}, "Asset chip" }
+                Chip { is_selected: true, onclick: |_| {}, "Asset chip" }
             }
         }
     )

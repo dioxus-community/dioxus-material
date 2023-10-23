@@ -40,7 +40,7 @@ pub fn Ripple<'a>(
 
     render!(
         div {
-            display: "inline-block",
+            display: "inline-flex",
             flex: 1,
             position: "relative",
             overflow: "hidden",

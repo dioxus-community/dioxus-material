@@ -1,10 +1,12 @@
-use crate::{use_theme, Icon, IconKind};
+use crate::{use_theme, Icon, IconKind, Ripple};
 use dioxus::prelude::*;
 
+/// Chips help people enter information, make selections, filter content, or trigger actions.
+/// 
+/// [material.io](https://m3.material.io/components/chips)
 #[component]
-pub fn Chip<'a>(cx: Scope, children: Element<'a>, is_selected: Option<bool>) -> Element<'a> {
+pub fn Chip<'a>(cx: Scope, children: Element<'a>, is_selected: Option<bool>,onclick: EventHandler<'a, Event<MouseData>>) -> Element<'a> {
     let theme = use_theme(cx);
-
     let (border_color, background) = if *is_selected == Some(true) {
         (
             &*theme.secondary_container_color,
@@ -28,12 +30,14 @@ pub fn Chip<'a>(cx: Scope, children: Element<'a>, is_selected: Option<bool>) -> 
             font_weight: 500,
             border: "1px solid {border_color}",
             background: background,
-            if *is_selected == Some(true) {
-                render!(Icon { kind: IconKind::Check })
-            } else {
-                None
+            Ripple { onclick: |event| onclick.call(event),
+                if *is_selected == Some(true) {
+                    render!(Icon { kind: IconKind::Check })
+                } else {
+                    None
+                }
+                children
             }
-            children
         }
     )
 }
