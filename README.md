@@ -54,3 +54,10 @@ Theme {
   }
 }
 ```
+
+## Installation
+Dioxus-material currently depends on the latest Dioxus git version.
+
+```sh
+cargo install dioxus-material --git https://github.com/matthunz/dioxus-material
+```
