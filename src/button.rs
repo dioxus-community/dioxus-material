@@ -1,6 +1,26 @@
 use crate::{use_theme, Ripple};
 use dioxus::prelude::*;
 
+/// Filled button component.
+/// 
+/// Buttons let people take action and make choices with one tap.
+/// 
+/// [material.io](https://m3.material.io/components/buttons)
+/// 
+/// ## Panics
+/// This component requires access to a [`Theme`](crate::Theme).
+/// 
+/// ## Examples
+/// ```rust
+/// use dioxus::prelude::*;
+/// use dioxus_material::{Button, TextButton, Theme};
+/// 
+/// fn app(cx: Scope) -> Element {
+///    render!(Theme { 
+///         Button { onpress: |_| log::info!("clicked!"), "Click me!" } }
+///    )
+/// }
+/// ```
 #[component]
 pub fn Button<'a>(
     cx: Scope<'a>,

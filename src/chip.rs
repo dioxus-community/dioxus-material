@@ -1,9 +1,31 @@
 use crate::{use_theme, Icon, IconKind, Ripple};
 use dioxus::prelude::*;
 
+/// Chip component.
+/// 
 /// Chips help people enter information, make selections, filter content, or trigger actions.
 /// 
 /// [material.io](https://m3.material.io/components/chips)
+///
+/// ## Panics
+/// This component requires access to a [`Theme`](crate::Theme) and [`IconFont`](crate::IconFont).
+/// 
+/// ## Examples
+/// ```rust
+/// 
+/// use dioxus::prelude::*;
+/// use dioxus_material::{Chip, Theme, IconFont};
+/// 
+/// fn app(cx: Scope) -> Element {
+///     render!(Theme { 
+///         IconFont {}
+///         div { display: "flex", gap: "10px",
+///             Chip { onclick: |_| {}, "Asset chip" }
+///             Chip { is_selected: true, onclick: |_| {}, "Asset chip" }
+///         }
+///     })
+/// }
+/// ```
 #[component]
 pub fn Chip<'a>(cx: Scope, children: Element<'a>, is_selected: Option<bool>,onclick: EventHandler<'a, Event<MouseData>>) -> Element<'a> {
     let theme = use_theme(cx);
