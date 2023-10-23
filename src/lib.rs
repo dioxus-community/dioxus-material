@@ -1,6 +1,9 @@
 mod button;
 pub use button::{Button, ButtonProps, TextButton, TextButtonProps};
 
+mod dialog;
+pub use dialog::Dialog;
+
 mod icon;
 pub use icon::{IconFont, Icon};
 
