@@ -5,10 +5,14 @@
     alt="Crates.io version" />
   </a>
   <a href="https://docs.rs/dioxus-material/latest/dioxus_material/">
-    <img src="https://img.shields.io/badge/docs-latest-blue.svg?style=flat-square"
+    <img src="https://img.shields.io/badge/docs-stable-blue.svg?style=flat-square"
       alt="docs.rs docs" />
   </a>
-    <a href="https://matthunz.github.io/">
+  <a href="https://dioxus-material.netlify.app/dioxus_material/">
+    <img src="https://img.shields.io/badge/docs-nightly-blue.svg?style=flat-square"
+      alt="lookbook docs" />
+  </a>
+  <a href="https://matthunz.github.io/">
     <img src="https://img.shields.io/badge/lookbook%20%F0%9F%91%80-purple"
       alt="lookbook docs" />
   </a>
@@ -24,29 +28,14 @@
 
 <br>
 
-```rs
-Theme {
-  Button { onclick: |_| log::info!("clicked!"), "Click me!" }
+## Installation
+This crate currently depends on the latest Dioxus git version.
 
-  Icon { kind: IconKind::Home, is_filled: true, size: 100. }
-
-  TextButton { onclick: |_| log::info!("clicked!"), "Click me!" }
-
-  TabRow {
-      onselect: |idx| log::info!("{}", idx),
-      tabs: cx
-          .bump()
-          .alloc([
-              render!(Tab { "Tab 1" }),
-              render!(Tab { "Tab 2" }),
-              render!(Tab { "Tab 3" }),
-          ])
-  }
-
-  TextField {
-      label: "Text field",
-      value: "{value}",
-      onchange: move |event: FormEvent| value.set(event.value.clone())
-  }
-}
+```sh
+cargo install dioxus-material --git https://github.com/matthunz/dioxus-material
 ```
+
+## Lookbook
+This crate uses [lookbook](https://github.com/matthunz/lookbook) for component previews and testing.
+You can check out the [live version](https://dioxus-material.netlify.app/dioxus_material/)
+or run it yourself by running `dx serve` in the `lookbook` directory.
