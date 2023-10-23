@@ -13,7 +13,7 @@ use dioxus::prelude::*;
 /// ## Examples
 /// ```rust
 /// use dioxus::prelude::*;
-/// use dioxus_material::{Button, TextButton, Theme};
+/// use dioxus_material::{Button, Theme};
 /// 
 /// fn app(cx: Scope) -> Element {
 ///    render!(Theme { 
