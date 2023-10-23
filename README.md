@@ -5,10 +5,14 @@
     alt="Crates.io version" />
   </a>
   <a href="https://docs.rs/dioxus-material/latest/dioxus_material/">
-    <img src="https://img.shields.io/badge/docs-latest-blue.svg?style=flat-square"
+    <img src="https://img.shields.io/badge/docs-stable-blue.svg?style=flat-square"
       alt="docs.rs docs" />
   </a>
-    <a href="https://matthunz.github.io/">
+  <a href="https://dioxus-material.netlify.app/dioxus_material/">
+    <img src="https://img.shields.io/badge/docs-nightly-blue.svg?style=flat-square"
+      alt="lookbook docs" />
+  </a>
+  <a href="https://matthunz.github.io/">
     <img src="https://img.shields.io/badge/lookbook%20%F0%9F%91%80-purple"
       alt="lookbook docs" />
   </a>
