@@ -12,9 +12,9 @@ members = [
 ]
 
 [dependencies]
-dioxus = { git = "https://github.com/ealmloff/dioxus", branch = "fix-signals-outside-of-runtime" }
-dioxus-web = { git = "https://github.com/ealmloff/dioxus", branch = "fix-signals-outside-of-runtime" }
-dioxus-signals = { git = "https://github.com/ealmloff/dioxus", branch = "fix-signals-outside-of-runtime" }
+dioxus = { git = "https://github.com/dioxuslabs/dioxus" }
+dioxus-web = { git = "https://github.com/dioxuslabs/dioxus" }
+dioxus-signals = { git = "https://github.com/dioxuslabs/dioxus" }
 dioxus-use-mounted = { git = "https://github.com/matthunz/dioxus-use-mounted" }
 dioxus-spring = { git = "https://github.com/matthunz/dioxus-spring" }
 dioxus-resize-observer = { git = "https://github.com/dioxus-community/dioxus-resize-observer" }
