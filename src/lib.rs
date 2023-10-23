@@ -1,6 +1,9 @@
 mod button;
 pub use button::{Button, ButtonProps, TextButton, TextButtonProps};
 
+mod chip;
+pub use chip::Chip;
+
 mod dialog;
 pub use dialog::Dialog;
 

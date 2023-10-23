@@ -1,6 +1,9 @@
 use crate::use_theme;
 use dioxus::prelude::*;
 
+/// Dialogs provide important prompts in a user flow.
+/// 
+/// [material.io](https://m3.material.io/components/dialogs)
 #[component]
 pub fn Dialog<'a>(cx: Scope<'a>, children: Element<'a>, is_visible: bool) -> Element<'a> {
     let theme = use_theme(cx);
@@ -19,7 +22,7 @@ pub fn Dialog<'a>(cx: Scope<'a>, children: Element<'a>, is_visible: bool) -> Ele
                 top: "50%",
                 left: "50%",
                 transform: "translate(-50%, -50%)",
-                border_radius: "{theme.border_radius}",
+                border_radius: "{theme.border_radius_medium}",
                 background: "#fff",
                 children
             }

@@ -17,9 +17,13 @@ pub fn Theme<'a>(
     #[props(into, default = Cow::Borrowed("#E8DEF8"))]
     secondary_container_color: Cow<'static, str>,
 
-    /// Border radius.
+    /// Border radius medium.
     #[props(into, default = Cow::Borrowed("25px"))]
-    border_radius: Cow<'static, str>,
+    border_radius_medium: Cow<'static, str>,
+
+    /// Border radius.
+    #[props(into, default = Cow::Borrowed("8px"))]
+    border_radius_small: Cow<'static, str>,
 
     /// Small label font size.
     #[props(default = 12.)]
@@ -36,7 +40,8 @@ pub fn Theme<'a>(
             primary_color: primary_color.clone(),
             background_color: background_color.clone(),
             secondary_container_color: secondary_container_color.clone(),
-            border_radius: border_radius.clone(),
+            border_radius_medium: border_radius_medium.clone(),
+            border_radius_small: border_radius_small.clone(),
             label_small: *label_small,
             label_medium: *label_medium,
         })
@@ -49,7 +54,8 @@ pub struct UseTheme {
     pub primary_color: Cow<'static, str>,
     pub background_color: Cow<'static, str>,
     pub secondary_container_color: Cow<'static, str>,
-    pub border_radius: Cow<'static, str>,
+    pub border_radius_medium: Cow<'static, str>,
+    pub border_radius_small: Cow<'static, str>,
     pub label_small: f32,
     pub label_medium: f32,
 }

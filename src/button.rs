@@ -22,7 +22,7 @@ pub fn Button<'a>(
 ) -> Element<'a> {
     let theme = use_theme(cx);
     let background_color = background_color.unwrap_or(&theme.primary_color);
-    let border_radius = border_radius.unwrap_or(&theme.border_radius);
+    let border_radius = border_radius.unwrap_or(&theme.border_radius_medium);
     let height = height.unwrap_or("50px");
 
     render!(
@@ -72,7 +72,7 @@ pub fn TextButton<'a>(
 ) -> Element<'a> {
     let theme = use_theme(cx);
     let color = color.unwrap_or(&theme.primary_color);
-    let border_radius = border_radius.unwrap_or(&theme.border_radius);
+    let border_radius = border_radius.unwrap_or(&theme.border_radius_medium);
     let height = height.unwrap_or("40px");
 
     render!(
