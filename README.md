@@ -38,4 +38,4 @@ cargo install dioxus-material --git https://github.com/matthunz/dioxus-material
 ## Lookbook
 This crate uses [lookbook](https://github.com/matthunz/lookbook) for component previews and testing.
 You can check out the [live version](https://dioxus-material.netlify.app/dioxus_material/)
-or run it yourself by running `dx serve --features lookbook`.
+or run it yourself by running `dx serve` in the `lookbook` directory.
