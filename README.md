@@ -28,36 +28,14 @@
 
 <br>
 
-```rs
-Theme {
-  Button { onclick: |_| log::info!("clicked!"), "Click me!" }
-
-  Icon { kind: IconKind::Home, is_filled: true, size: 100. }
-
-  TextButton { onclick: |_| log::info!("clicked!"), "Click me!" }
-
-  TabRow {
-      onselect: |idx| log::info!("{}", idx),
-      tabs: cx
-          .bump()
-          .alloc([
-              render!(Tab { "Tab 1" }),
-              render!(Tab { "Tab 2" }),
-              render!(Tab { "Tab 3" }),
-          ])
-  }
-
-  TextField {
-      label: "Text field",
-      value: "{value}",
-      onchange: move |event: FormEvent| value.set(event.value.clone())
-  }
-}
-```
-
 ## Installation
-Dioxus-material currently depends on the latest Dioxus git version.
+This crate currently depends on the latest Dioxus git version.
 
 ```sh
 cargo install dioxus-material --git https://github.com/matthunz/dioxus-material
 ```
+
+## Lookbook
+This crate uses [lookbook](https://github.com/matthunz/lookbook) for component previews and testing.
+You can check out the [live version](https://dioxus-material.netlify.app/dioxus_material/)
+or run it yourself by running `dx serve --features lookbook`.
