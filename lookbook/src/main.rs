@@ -1,7 +1,8 @@
 use dioxus::prelude::*;
-use dioxus_material::{use_theme, Button, TextButton, TextField};
+use dioxus_material::{use_theme, Button, Icon, IconKind, Tab, TabRow, TextButton, TextField};
 use lookbook::{preview, LookBook};
 
+/// Buttons let people take action and make choices with one tap.
 #[preview]
 fn ButtonPreview(
     cx: Scope,
@@ -19,8 +20,37 @@ fn ButtonPreview(
     })
 }
 
+/// Tabs show multiple options for information.
 #[preview]
+fn TabRowPreview<'a>(
+    cx: Scope<'a>,
 
+    /// Label for tab A.
+    #[lookbook(default = "Tab A")]
+    label_a: &'a str,
+
+    /// Label for tab B.
+    #[lookbook(default = "Tab B")]
+    label_b: &'a str,
+
+    /// Label for tab C.
+    #[lookbook(default = "Tab C")]
+    label_c: &'a str,
+) -> Element<'a> {
+    render!(div {width: "500px", TabRow {
+        onselect: |_| {},
+        tabs: cx
+            .bump()
+            .alloc([
+                render!(Tab { label_a }),
+                render!(Tab {label_b }),
+                render!(Tab { label_c }),
+            ])
+    }})
+}
+
+/// Buttons let people take action and make choices with one tap.
+#[preview]
 fn TextButtonPreview(
     cx: Scope,
     /// Label for the text button.
@@ -70,7 +100,12 @@ fn Home(cx: Scope) -> Element {
 fn app(cx: Scope) -> Element {
     render!(LookBook {
         home: Home,
-        previews: [ButtonPreview, TextButtonPreview, TextFieldPreview]
+        previews: [
+            ButtonPreview,
+            TabRowPreview,
+            TextButtonPreview,
+            TextFieldPreview
+        ]
     })
 }
 
