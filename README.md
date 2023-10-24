@@ -10,9 +10,9 @@
   </a>
   <a href="https://dioxus-material.netlify.app/dioxus_material/">
     <img src="https://img.shields.io/badge/docs-nightly-blue.svg?style=flat-square"
-      alt="lookbook docs" />
+      alt="nightly docs" />
   </a>
-  <a href="https://matthunz.github.io/">
+  <a href="https://dioxus-material-lookbook.netlify.app">
     <img src="https://img.shields.io/badge/lookbook%20%F0%9F%91%80-purple"
       alt="lookbook docs" />
   </a>
@@ -20,10 +20,6 @@
     <img src="https://github.com/matthunz/dioxus-material/actions/workflows/ci.yml/badge.svg"
       alt="CI status" />
   </a>
-</div>
-
-<div align="center">
- <a href="https://github.com/matthunz/dioxus-spring/tree/main/examples">Examples</a>
 </div>
 
 <br>
@@ -37,5 +33,5 @@ cargo install dioxus-material --git https://github.com/matthunz/dioxus-material
 
 ## Lookbook
 This crate uses [lookbook](https://github.com/matthunz/lookbook) for component previews and testing.
-You can check out the [live version](https://dioxus-material.netlify.app/dioxus_material/)
+You can check out the [live version](https://dioxus-material-lookbook.netlify.app)
 or run it yourself by running `dx serve` in the `lookbook` directory.
