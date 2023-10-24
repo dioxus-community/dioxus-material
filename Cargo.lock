@@ -4,9 +4,9 @@ version = 3
 
 [[package]]
 name = "ahash"
-version = "0.7.6"
+version = "0.7.7"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "fcb51a0695d8f838b1ee009b3fbf66bda078cd64590202a864a8f3e8c4315c47"
+checksum = "5a824f2aa7e75a0c98c5a504fceb80649e9c35265d44525b5f94de4771a395cd"
 dependencies = [
  "getrandom",
  "once_cell",
@@ -82,6 +82,12 @@ checksum = "b1f45e9417d87227c7a56d22e471c6206462cba514c7590c09aff4cf6d1ddcad"
 dependencies = [
  "serde",
 ]
+
+[[package]]
+name = "bitflags"
+version = "1.3.2"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "bef38d45163c2f1dde094a7dfd33ccf595c92905c8f8f4fdc18d06fb1037718a"
 
 [[package]]
 name = "bitflags"
@@ -217,49 +223,20 @@ dependencies = [
 [[package]]
 name = "dioxus"
 version = "0.4.2"
-source = "git+https://github.com/ealmloff/dioxus?branch=fix-signals-outside-of-runtime#ce86aabf262d53cbf8cbf0a5cbb74630725b8970"
+source = "git+https://github.com/dioxuslabs/dioxus#647815fa6f6db2304cda5bd36c78b4f8b0379f39"
 dependencies = [
- "dioxus-core 0.4.2 (git+https://github.com/ealmloff/dioxus?branch=fix-signals-outside-of-runtime)",
- "dioxus-core-macro 0.4.2 (git+https://github.com/ealmloff/dioxus?branch=fix-signals-outside-of-runtime)",
- "dioxus-hooks 0.4.2 (git+https://github.com/ealmloff/dioxus?branch=fix-signals-outside-of-runtime)",
- "dioxus-hot-reload 0.4.2 (git+https://github.com/ealmloff/dioxus?branch=fix-signals-outside-of-runtime)",
- "dioxus-html 0.4.2 (git+https://github.com/ealmloff/dioxus?branch=fix-signals-outside-of-runtime)",
- "dioxus-rsx 0.4.2 (git+https://github.com/ealmloff/dioxus?branch=fix-signals-outside-of-runtime)",
-]
-
-[[package]]
-name = "dioxus"
-version = "0.4.2"
-source = "git+https://github.com/dioxuslabs/dioxus#cea9563e259e51f45de40d8ac1078024aef29be6"
-dependencies = [
- "dioxus-core 0.4.2 (git+https://github.com/dioxuslabs/dioxus)",
- "dioxus-core-macro 0.4.2 (git+https://github.com/dioxuslabs/dioxus)",
- "dioxus-hooks 0.4.2 (git+https://github.com/dioxuslabs/dioxus)",
- "dioxus-hot-reload 0.4.2 (git+https://github.com/dioxuslabs/dioxus)",
- "dioxus-html 0.4.2 (git+https://github.com/dioxuslabs/dioxus)",
- "dioxus-rsx 0.4.2 (git+https://github.com/dioxuslabs/dioxus)",
+ "dioxus-core",
+ "dioxus-core-macro",
+ "dioxus-hooks",
+ "dioxus-hot-reload",
+ "dioxus-html",
+ "dioxus-rsx",
 ]
 
 [[package]]
 name = "dioxus-core"
 version = "0.4.2"
-source = "git+https://github.com/ealmloff/dioxus?branch=fix-signals-outside-of-runtime#ce86aabf262d53cbf8cbf0a5cbb74630725b8970"
-dependencies = [
- "bumpalo",
- "futures-channel",
- "futures-util",
- "longest-increasing-subsequence",
- "rustc-hash",
- "serde",
- "slab",
- "smallbox",
- "tracing",
-]
-
-[[package]]
-name = "dioxus-core"
-version = "0.4.2"
-source = "git+https://github.com/dioxuslabs/dioxus#cea9563e259e51f45de40d8ac1078024aef29be6"
+source = "git+https://github.com/dioxuslabs/dioxus#647815fa6f6db2304cda5bd36c78b4f8b0379f39"
 dependencies = [
  "bumpalo",
  "futures-channel",
@@ -275,24 +252,11 @@ dependencies = [
 [[package]]
 name = "dioxus-core-macro"
 version = "0.4.2"
-source = "git+https://github.com/ealmloff/dioxus?branch=fix-signals-outside-of-runtime#ce86aabf262d53cbf8cbf0a5cbb74630725b8970"
+source = "git+https://github.com/dioxuslabs/dioxus#647815fa6f6db2304cda5bd36c78b4f8b0379f39"
 dependencies = [
  "constcat",
- "dioxus-core 0.4.2 (git+https://github.com/ealmloff/dioxus?branch=fix-signals-outside-of-runtime)",
- "dioxus-rsx 0.4.2 (git+https://github.com/ealmloff/dioxus?branch=fix-signals-outside-of-runtime)",
- "proc-macro2",
- "quote",
- "syn",
-]
-
-[[package]]
-name = "dioxus-core-macro"
-version = "0.4.2"
-source = "git+https://github.com/dioxuslabs/dioxus#cea9563e259e51f45de40d8ac1078024aef29be6"
-dependencies = [
- "constcat",
- "dioxus-core 0.4.2 (git+https://github.com/dioxuslabs/dioxus)",
- "dioxus-rsx 0.4.2 (git+https://github.com/dioxuslabs/dioxus)",
+ "dioxus-core",
+ "dioxus-rsx",
  "prettyplease",
  "proc-macro2",
  "quote",
@@ -308,22 +272,9 @@ checksum = "2ea539174bb236e0e7dc9c12b19b88eae3cb574dedbd0252a2d43ea7e6de13e2"
 [[package]]
 name = "dioxus-hooks"
 version = "0.4.2"
-source = "git+https://github.com/ealmloff/dioxus?branch=fix-signals-outside-of-runtime#ce86aabf262d53cbf8cbf0a5cbb74630725b8970"
+source = "git+https://github.com/dioxuslabs/dioxus#647815fa6f6db2304cda5bd36c78b4f8b0379f39"
 dependencies = [
- "dioxus-core 0.4.2 (git+https://github.com/ealmloff/dioxus?branch=fix-signals-outside-of-runtime)",
- "dioxus-debug-cell",
- "futures-channel",
- "slab",
- "thiserror",
- "tracing",
-]
-
-[[package]]
-name = "dioxus-hooks"
-version = "0.4.2"
-source = "git+https://github.com/dioxuslabs/dioxus#cea9563e259e51f45de40d8ac1078024aef29be6"
-dependencies = [
- "dioxus-core 0.4.2 (git+https://github.com/dioxuslabs/dioxus)",
+ "dioxus-core",
  "dioxus-debug-cell",
  "futures-channel",
  "slab",
@@ -334,24 +285,11 @@ dependencies = [
 [[package]]
 name = "dioxus-hot-reload"
 version = "0.4.2"
-source = "git+https://github.com/ealmloff/dioxus?branch=fix-signals-outside-of-runtime#ce86aabf262d53cbf8cbf0a5cbb74630725b8970"
+source = "git+https://github.com/dioxuslabs/dioxus#647815fa6f6db2304cda5bd36c78b4f8b0379f39"
 dependencies = [
- "dioxus-core 0.4.2 (git+https://github.com/ealmloff/dioxus?branch=fix-signals-outside-of-runtime)",
- "dioxus-html 0.4.2 (git+https://github.com/ealmloff/dioxus?branch=fix-signals-outside-of-runtime)",
- "dioxus-rsx 0.4.2 (git+https://github.com/ealmloff/dioxus?branch=fix-signals-outside-of-runtime)",
- "interprocess-docfix",
- "serde",
- "serde_json",
-]
-
-[[package]]
-name = "dioxus-hot-reload"
-version = "0.4.2"
-source = "git+https://github.com/dioxuslabs/dioxus#cea9563e259e51f45de40d8ac1078024aef29be6"
-dependencies = [
- "dioxus-core 0.4.2 (git+https://github.com/dioxuslabs/dioxus)",
- "dioxus-html 0.4.2 (git+https://github.com/dioxuslabs/dioxus)",
- "dioxus-rsx 0.4.2 (git+https://github.com/dioxuslabs/dioxus)",
+ "dioxus-core",
+ "dioxus-html",
+ "dioxus-rsx",
  "interprocess-docfix",
  "serde",
  "serde_json",
@@ -360,30 +298,11 @@ dependencies = [
 [[package]]
 name = "dioxus-html"
 version = "0.4.2"
-source = "git+https://github.com/ealmloff/dioxus?branch=fix-signals-outside-of-runtime#ce86aabf262d53cbf8cbf0a5cbb74630725b8970"
+source = "git+https://github.com/dioxuslabs/dioxus#647815fa6f6db2304cda5bd36c78b4f8b0379f39"
 dependencies = [
  "async-channel",
  "async-trait",
- "dioxus-core 0.4.2 (git+https://github.com/ealmloff/dioxus?branch=fix-signals-outside-of-runtime)",
- "enumset",
- "euclid",
- "keyboard-types",
- "serde",
- "serde-value",
- "serde_json",
- "serde_repr",
- "wasm-bindgen",
- "web-sys",
-]
-
-[[package]]
-name = "dioxus-html"
-version = "0.4.2"
-source = "git+https://github.com/dioxuslabs/dioxus#cea9563e259e51f45de40d8ac1078024aef29be6"
-dependencies = [
- "async-channel",
- "async-trait",
- "dioxus-core 0.4.2 (git+https://github.com/dioxuslabs/dioxus)",
+ "dioxus-core",
  "enumset",
  "euclid",
  "keyboard-types",
@@ -398,19 +317,7 @@ dependencies = [
 [[package]]
 name = "dioxus-interpreter-js"
 version = "0.4.2"
-source = "git+https://github.com/ealmloff/dioxus?branch=fix-signals-outside-of-runtime#ce86aabf262d53cbf8cbf0a5cbb74630725b8970"
-dependencies = [
- "js-sys",
- "sledgehammer_bindgen",
- "sledgehammer_utils",
- "wasm-bindgen",
- "web-sys",
-]
-
-[[package]]
-name = "dioxus-interpreter-js"
-version = "0.4.2"
-source = "git+https://github.com/dioxuslabs/dioxus#cea9563e259e51f45de40d8ac1078024aef29be6"
+source = "git+https://github.com/dioxuslabs/dioxus#647815fa6f6db2304cda5bd36c78b4f8b0379f39"
 dependencies = [
  "js-sys",
  "sledgehammer_bindgen",
@@ -433,28 +340,28 @@ dependencies = [
 name = "dioxus-material"
 version = "0.1.0"
 dependencies = [
- "dioxus 0.4.2 (git+https://github.com/dioxuslabs/dioxus)",
+ "dioxus",
  "dioxus-logger",
  "dioxus-resize-observer",
- "dioxus-signals 0.0.0 (git+https://github.com/dioxuslabs/dioxus)",
+ "dioxus-signals",
  "dioxus-spring",
  "dioxus-use-mounted",
- "dioxus-web 0.4.2 (git+https://github.com/dioxuslabs/dioxus)",
+ "dioxus-web",
  "log",
 ]
 
 [[package]]
 name = "dioxus-material"
 version = "0.1.0"
-source = "git+https://github.com/matthunz/dioxus-material#5faee8e997963535d35c87845efe0b1a1afc839f"
+source = "git+https://github.com/matthunz/dioxus-material#05786a939dda55dfe8f1fb111249734a3be5d110"
 dependencies = [
- "dioxus 0.4.2 (git+https://github.com/ealmloff/dioxus?branch=fix-signals-outside-of-runtime)",
+ "dioxus",
  "dioxus-logger",
  "dioxus-resize-observer",
- "dioxus-signals 0.0.0 (git+https://github.com/ealmloff/dioxus?branch=fix-signals-outside-of-runtime)",
+ "dioxus-signals",
  "dioxus-spring",
  "dioxus-use-mounted",
- "dioxus-web 0.4.2 (git+https://github.com/ealmloff/dioxus?branch=fix-signals-outside-of-runtime)",
+ "dioxus-web",
  "log",
 ]
 
@@ -462,11 +369,9 @@ dependencies = [
 name = "dioxus-material-lookbook"
 version = "0.1.0"
 dependencies = [
- "dioxus 0.4.2 (git+https://github.com/ealmloff/dioxus?branch=fix-signals-outside-of-runtime)",
+ "dioxus",
  "dioxus-material 0.1.0 (git+https://github.com/matthunz/dioxus-material)",
- "dioxus-router",
- "dioxus-signals 0.0.0 (git+https://github.com/ealmloff/dioxus?branch=fix-signals-outside-of-runtime)",
- "dioxus-web 0.4.2 (git+https://github.com/ealmloff/dioxus?branch=fix-signals-outside-of-runtime)",
+ "dioxus-web",
  "lookbook",
 ]
 
@@ -475,10 +380,10 @@ name = "dioxus-resize-observer"
 version = "0.1.0"
 source = "git+https://github.com/dioxus-community/dioxus-resize-observer#481585f6100075996782910b8a91e34c77573370"
 dependencies = [
- "dioxus 0.4.2 (git+https://github.com/dioxuslabs/dioxus)",
- "dioxus-signals 0.0.0 (git+https://github.com/dioxuslabs/dioxus)",
+ "dioxus",
+ "dioxus-signals",
  "dioxus-use-mounted",
- "dioxus-web 0.4.2 (git+https://github.com/dioxuslabs/dioxus)",
+ "dioxus-web",
  "js-sys",
  "wasm-bindgen",
  "web-sys",
@@ -487,10 +392,10 @@ dependencies = [
 [[package]]
 name = "dioxus-router"
 version = "0.4.2"
-source = "git+https://github.com/ealmloff/dioxus?branch=fix-signals-outside-of-runtime#ce86aabf262d53cbf8cbf0a5cbb74630725b8970"
+source = "git+https://github.com/dioxuslabs/dioxus#647815fa6f6db2304cda5bd36c78b4f8b0379f39"
 dependencies = [
  "anyhow",
- "dioxus 0.4.2 (git+https://github.com/ealmloff/dioxus?branch=fix-signals-outside-of-runtime)",
+ "dioxus",
  "dioxus-router-macro",
  "futures-util",
  "gloo",
@@ -507,7 +412,7 @@ dependencies = [
 [[package]]
 name = "dioxus-router-macro"
 version = "0.4.2"
-source = "git+https://github.com/ealmloff/dioxus?branch=fix-signals-outside-of-runtime#ce86aabf262d53cbf8cbf0a5cbb74630725b8970"
+source = "git+https://github.com/dioxuslabs/dioxus#647815fa6f6db2304cda5bd36c78b4f8b0379f39"
 dependencies = [
  "proc-macro2",
  "quote",
@@ -518,20 +423,9 @@ dependencies = [
 [[package]]
 name = "dioxus-rsx"
 version = "0.4.2"
-source = "git+https://github.com/ealmloff/dioxus?branch=fix-signals-outside-of-runtime#ce86aabf262d53cbf8cbf0a5cbb74630725b8970"
+source = "git+https://github.com/dioxuslabs/dioxus#647815fa6f6db2304cda5bd36c78b4f8b0379f39"
 dependencies = [
- "dioxus-core 0.4.2 (git+https://github.com/ealmloff/dioxus?branch=fix-signals-outside-of-runtime)",
- "proc-macro2",
- "quote",
- "syn",
-]
-
-[[package]]
-name = "dioxus-rsx"
-version = "0.4.2"
-source = "git+https://github.com/dioxuslabs/dioxus#cea9563e259e51f45de40d8ac1078024aef29be6"
-dependencies = [
- "dioxus-core 0.4.2 (git+https://github.com/dioxuslabs/dioxus)",
+ "dioxus-core",
  "proc-macro2",
  "quote",
  "syn",
@@ -540,21 +434,10 @@ dependencies = [
 [[package]]
 name = "dioxus-signals"
 version = "0.0.0"
-source = "git+https://github.com/ealmloff/dioxus?branch=fix-signals-outside-of-runtime#ce86aabf262d53cbf8cbf0a5cbb74630725b8970"
+source = "git+https://github.com/dioxuslabs/dioxus#647815fa6f6db2304cda5bd36c78b4f8b0379f39"
 dependencies = [
- "dioxus-core 0.4.2 (git+https://github.com/ealmloff/dioxus?branch=fix-signals-outside-of-runtime)",
- "generational-box 0.0.0 (git+https://github.com/ealmloff/dioxus?branch=fix-signals-outside-of-runtime)",
- "simple_logger",
- "tracing",
-]
-
-[[package]]
-name = "dioxus-signals"
-version = "0.0.0"
-source = "git+https://github.com/dioxuslabs/dioxus#cea9563e259e51f45de40d8ac1078024aef29be6"
-dependencies = [
- "dioxus-core 0.4.2 (git+https://github.com/dioxuslabs/dioxus)",
- "generational-box 0.0.0 (git+https://github.com/dioxuslabs/dioxus)",
+ "dioxus-core",
+ "generational-box",
  "simple_logger",
  "tracing",
 ]
@@ -565,11 +448,11 @@ version = "0.1.0"
 source = "git+https://github.com/matthunz/dioxus-spring#1a2243a9e6ddb67b0d82e1052233c6ac4fb9e3e5"
 dependencies = [
  "async-channel",
- "dioxus 0.4.2 (git+https://github.com/dioxuslabs/dioxus)",
+ "dioxus",
  "dioxus-logger",
- "dioxus-signals 0.0.0 (git+https://github.com/dioxuslabs/dioxus)",
+ "dioxus-signals",
  "dioxus-use-mounted",
- "dioxus-web 0.4.2 (git+https://github.com/dioxuslabs/dioxus)",
+ "dioxus-web",
  "futures",
  "interpolation",
  "js-sys",
@@ -584,22 +467,22 @@ name = "dioxus-use-mounted"
 version = "0.1.0"
 source = "git+https://github.com/matthunz/dioxus-use-mounted#7f27c94bb6b2e63f175aeab06b671c0940e4bd15"
 dependencies = [
- "dioxus 0.4.2 (git+https://github.com/dioxuslabs/dioxus)",
- "dioxus-signals 0.0.0 (git+https://github.com/dioxuslabs/dioxus)",
- "dioxus-web 0.4.2 (git+https://github.com/dioxuslabs/dioxus)",
+ "dioxus",
+ "dioxus-signals",
+ "dioxus-web",
 ]
 
 [[package]]
 name = "dioxus-web"
 version = "0.4.2"
-source = "git+https://github.com/ealmloff/dioxus?branch=fix-signals-outside-of-runtime#ce86aabf262d53cbf8cbf0a5cbb74630725b8970"
+source = "git+https://github.com/dioxuslabs/dioxus#647815fa6f6db2304cda5bd36c78b4f8b0379f39"
 dependencies = [
  "async-channel",
  "async-trait",
  "console_error_panic_hook",
- "dioxus-core 0.4.2 (git+https://github.com/ealmloff/dioxus?branch=fix-signals-outside-of-runtime)",
- "dioxus-html 0.4.2 (git+https://github.com/ealmloff/dioxus?branch=fix-signals-outside-of-runtime)",
- "dioxus-interpreter-js 0.4.2 (git+https://github.com/ealmloff/dioxus?branch=fix-signals-outside-of-runtime)",
+ "dioxus-core",
+ "dioxus-html",
+ "dioxus-interpreter-js",
  "futures-channel",
  "futures-util",
  "js-sys",
@@ -614,27 +497,12 @@ dependencies = [
 ]
 
 [[package]]
-name = "dioxus-web"
-version = "0.4.2"
-source = "git+https://github.com/dioxuslabs/dioxus#cea9563e259e51f45de40d8ac1078024aef29be6"
+name = "dioxus_markdown"
+version = "0.1.0"
+source = "git+https://github.com/matthunz/markdown#cb4da0df1c462c1c2c9bc4c88816ede89597cf52"
 dependencies = [
- "async-channel",
- "async-trait",
- "console_error_panic_hook",
- "dioxus-core 0.4.2 (git+https://github.com/dioxuslabs/dioxus)",
- "dioxus-html 0.4.2 (git+https://github.com/dioxuslabs/dioxus)",
- "dioxus-interpreter-js 0.4.2 (git+https://github.com/dioxuslabs/dioxus)",
- "futures-channel",
- "futures-util",
- "js-sys",
- "rustc-hash",
- "serde",
- "serde-wasm-bindgen",
- "serde_json",
- "tracing",
- "wasm-bindgen",
- "wasm-bindgen-futures",
- "web-sys",
+ "dioxus",
+ "pulldown-cmark",
 ]
 
 [[package]]
@@ -807,17 +675,18 @@ dependencies = [
 [[package]]
 name = "generational-box"
 version = "0.0.0"
-source = "git+https://github.com/ealmloff/dioxus?branch=fix-signals-outside-of-runtime#ce86aabf262d53cbf8cbf0a5cbb74630725b8970"
+source = "git+https://github.com/dioxuslabs/dioxus#647815fa6f6db2304cda5bd36c78b4f8b0379f39"
 dependencies = [
  "bumpalo",
 ]
 
 [[package]]
-name = "generational-box"
-version = "0.0.0"
-source = "git+https://github.com/dioxuslabs/dioxus#cea9563e259e51f45de40d8ac1078024aef29be6"
+name = "getopts"
+version = "0.2.21"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "14dbbfd5c71d70241ecf9e6f13737f7b5ce823821063188d7e46c41d371eebd5"
 dependencies = [
- "bumpalo",
+ "unicode-width",
 ]
 
 [[package]]
@@ -1103,7 +972,7 @@ version = "0.7.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "b750dcadc39a09dbadd74e118f6dd6598df77fa01df0cfcdc52c28dece74528a"
 dependencies = [
- "bitflags",
+ "bitflags 2.4.1",
  "serde",
  "unicode-segmentation",
 ]
@@ -1171,15 +1040,16 @@ checksum = "b3bd0dd2cd90571056fdb71f6275fada10131182f84899f4b2a916e565d81d86"
 [[package]]
 name = "lookbook"
 version = "0.1.0"
-source = "git+https://github.com/matthunz/lookbook#7b90002d4c6de5e54a65020ffc613a2422be430f"
+source = "git+https://github.com/matthunz/lookbook#4c05c22e90041e5f3cb1e3fc0bac47913a3a6a4c"
 dependencies = [
- "dioxus 0.4.2 (git+https://github.com/ealmloff/dioxus?branch=fix-signals-outside-of-runtime)",
+ "dioxus",
  "dioxus-material 0.1.0 (git+https://github.com/matthunz/dioxus-material)",
  "dioxus-resize-observer",
  "dioxus-router",
- "dioxus-signals 0.0.0 (git+https://github.com/ealmloff/dioxus?branch=fix-signals-outside-of-runtime)",
+ "dioxus-signals",
  "dioxus-use-mounted",
- "dioxus-web 0.4.2 (git+https://github.com/ealmloff/dioxus?branch=fix-signals-outside-of-runtime)",
+ "dioxus-web",
+ "dioxus_markdown",
  "linkme",
  "lookbook-macros",
 ]
@@ -1187,8 +1057,10 @@ dependencies = [
 [[package]]
 name = "lookbook-macros"
 version = "0.1.0"
-source = "git+https://github.com/matthunz/lookbook#7b90002d4c6de5e54a65020ffc613a2422be430f"
+source = "git+https://github.com/matthunz/lookbook#4c05c22e90041e5f3cb1e3fc0bac47913a3a6a4c"
 dependencies = [
+ "dioxus-rsx",
+ "proc-macro2",
  "quote",
  "syn",
 ]
@@ -1316,6 +1188,18 @@ dependencies = [
 ]
 
 [[package]]
+name = "pulldown-cmark"
+version = "0.9.3"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "77a1a2f1f0a7ecff9c31abbe177637be0e97a0aef46cf8738ece09327985d998"
+dependencies = [
+ "bitflags 1.3.2",
+ "getopts",
+ "memchr",
+ "unicase",
+]
+
+[[package]]
 name = "quote"
 version = "1.0.33"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -1345,7 +1229,7 @@ version = "0.38.20"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "67ce50cb2e16c2903e30d1cbccfd8387a74b9d4c938b6a4c5ec6cc7556f7a8a0"
 dependencies = [
- "bitflags",
+ "bitflags 2.4.1",
  "errno",
  "libc",
  "linux-raw-sys",
@@ -1626,6 +1510,15 @@ dependencies = [
 ]
 
 [[package]]
+name = "unicase"
+version = "2.7.0"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "f7d2d4dafb69621809a81864c9c1b864479e1235c0dd4e199924b9742439ed89"
+dependencies = [
+ "version_check",
+]
+
+[[package]]
 name = "unicode-bidi"
 version = "0.3.13"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -1651,6 +1544,12 @@ name = "unicode-segmentation"
 version = "1.10.1"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "1dd624098567895118886609431a7c3b8f516e41d30e0643f03d94592a147e36"
+
+[[package]]
+name = "unicode-width"
+version = "0.1.11"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "e51733f11c9c4f72aa0c160008246859e340b00807569a0da0e7a1079b27ba85"
 
 [[package]]
 name = "url"
