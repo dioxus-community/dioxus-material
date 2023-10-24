@@ -22,10 +22,6 @@
   </a>
 </div>
 
-<div align="center">
- <a href="https://github.com/matthunz/dioxus-spring/tree/main/examples">Examples</a>
-</div>
-
 <br>
 
 ## Installation
