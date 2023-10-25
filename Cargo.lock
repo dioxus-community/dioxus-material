@@ -353,7 +353,7 @@ dependencies = [
 [[package]]
 name = "dioxus-material"
 version = "0.1.0"
-source = "git+https://github.com/matthunz/dioxus-material#07caa9592adc89530016d076e7ec2cc6f8437e95"
+source = "git+https://github.com/matthunz/dioxus-material#79fb78bd103471a38884126b680d4567d784224e"
 dependencies = [
  "dioxus",
  "dioxus-logger",
@@ -1040,7 +1040,7 @@ checksum = "b3bd0dd2cd90571056fdb71f6275fada10131182f84899f4b2a916e565d81d86"
 [[package]]
 name = "lookbook"
 version = "0.1.0"
-source = "git+https://github.com/matthunz/lookbook#0c108abf33eecdf0f7609c1bd0fd72b35d421153"
+source = "git+https://github.com/matthunz/lookbook#4dff820978737a330f219cc63ce394a0fe486f15"
 dependencies = [
  "dioxus",
  "dioxus-material 0.1.0 (git+https://github.com/matthunz/dioxus-material)",
@@ -1052,14 +1052,17 @@ dependencies = [
  "dioxus_markdown",
  "linkme",
  "lookbook-macros",
+ "serde",
+ "serde_json",
 ]
 
 [[package]]
 name = "lookbook-macros"
 version = "0.1.0"
-source = "git+https://github.com/matthunz/lookbook#0c108abf33eecdf0f7609c1bd0fd72b35d421153"
+source = "git+https://github.com/matthunz/lookbook#4dff820978737a330f219cc63ce394a0fe486f15"
 dependencies = [
  "dioxus-rsx",
+ "prettyplease",
  "proc-macro2",
  "quote",
  "syn",

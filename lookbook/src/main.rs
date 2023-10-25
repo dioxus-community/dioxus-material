@@ -1,6 +1,6 @@
 use dioxus::prelude::*;
-use dioxus_material::{use_theme, Button, Icon, IconKind, Tab, TabRow, TextButton, TextField};
-use lookbook::{preview, LookBook};
+use dioxus_material::{use_theme, Button, Tab, TabRow, TextButton, TextField};
+use lookbook::{preview, Json, LookBook};
 
 /// Buttons let people take action and make choices with one tap.
 #[preview]
@@ -13,11 +13,9 @@ fn ButtonPreview(
     let theme = use_theme(cx);
     let background_color = use_state(cx, || theme.primary_color.to_string());
 
-    render!(Button {
-        background_color: background_color,
-        onpress: |_| {},
-        label
-    })
+    render!(
+        Button { background_color: background_color, onpress: |_| {}, label }
+    )
 }
 
 /// Tabs show multiple options for information.
@@ -26,27 +24,19 @@ fn TabRowPreview<'a>(
     cx: Scope<'a>,
 
     /// Label for tab A.
-    #[lookbook(default = "Tab A")]
-    label_a: &'a str,
-
-    /// Label for tab B.
-    #[lookbook(default = "Tab B")]
-    label_b: &'a str,
-
-    /// Label for tab C.
-    #[lookbook(default = "Tab C")]
-    label_c: &'a str,
+    #[lookbook(default = vec![String::from("Tab A")])]
+    tabs: Json<Vec<String>>,
 ) -> Element<'a> {
-    render!(div {width: "500px", TabRow {
-        onselect: |_| {},
-        tabs: cx
-            .bump()
-            .alloc([
-                render!(Tab { label_a }),
-                render!(Tab {label_b }),
-                render!(Tab { label_c }),
-            ])
-    }})
+    render!(
+        div { width: "500px",
+            TabRow {
+                onselect: |_| {},
+                tabs: cx
+                    .bump()
+                    .alloc(tabs.0.iter().map(|label| render!(Tab { "{label}" })).collect::<Vec<_>>())
+            }
+        }
+    )
 }
 
 /// Buttons let people take action and make choices with one tap.
@@ -57,10 +47,9 @@ fn TextButtonPreview(
     #[lookbook(default = "Label")]
     label: &'a str,
 ) -> Element {
-    render!(TextButton {
-        onpress: |_| {},
-        label
-    })
+    render!(
+        TextButton { onpress: |_| {}, label }
+    )
 }
 
 /// Text fields let users enter text into a UI.
@@ -73,11 +62,13 @@ fn TextFieldPreview<'a>(
 ) -> Element<'a> {
     let value = use_state(cx, || String::from("Text Field"));
 
-    render!(TextField {
-        label: label,
-        value: value,
-        onchange: move |event: FormEvent| value.set(event.data.value.clone())
-    })
+    render!(
+        TextField {
+            label: label,
+            value: value,
+            onchange: move |event: FormEvent| value.set(event.data.value.clone())
+        }
+    )
 }
 
 #[component]
@@ -98,15 +89,12 @@ fn Home(cx: Scope) -> Element {
 }
 
 fn app(cx: Scope) -> Element {
-    render!(LookBook {
-        home: Home,
-        previews: [
-            ButtonPreview,
-            TabRowPreview,
-            TextButtonPreview,
-            TextFieldPreview
-        ]
-    })
+    render!(
+        LookBook {
+            home: Home,
+            previews: [ButtonPreview, TabRowPreview, TextButtonPreview, TextFieldPreview]
+        }
+    )
 }
 
 fn main() {
