@@ -1,4 +1,4 @@
-use crate::Ripple;
+use crate::{use_theme, Ripple};
 use dioxus::prelude::*;
 use dioxus_resize_observer::{use_resize, Rect};
 use dioxus_signals::{use_signal, Signal};
@@ -14,7 +14,6 @@ pub fn TabRow<'a>(
     onselect: EventHandler<'a, usize>,
 ) -> Element<'a> {
     let sizes = use_signal(cx, HashMap::new);
- 
 
     let width = sizes
         .read()
@@ -33,7 +32,11 @@ pub fn TabRow<'a>(
 
     let value_ref = use_spring(cx, [width, left], Duration::from_millis(200));
     let animated_ref = use_mounted(cx);
-    use_animated(cx, animated_ref, value_ref, |[width, left]| {
+
+    let theme = use_theme(cx);
+    let primary_color = theme.primary_color.clone();
+
+    use_animated(cx, animated_ref, value_ref, move |[width, left]| {
         format!(
             r"
             position: absolute;
@@ -41,7 +44,7 @@ pub fn TabRow<'a>(
             left: {left}px;
             width: {width}px;
             height: 4px;
-            background: #416529;
+            background: {primary_color};
             "
         )
     });

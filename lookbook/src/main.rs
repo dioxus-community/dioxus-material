@@ -9,12 +9,18 @@ fn ButtonPreview(
     /// Label for the button.
     #[lookbook(default = "Label")]
     label: &'a str,
-) -> Element {
-    let theme = use_theme(cx);
-    let background_color = use_state(cx, || theme.primary_color.to_string());
 
+    /// Background color of the container (optional).
+    #[lookbook(default = &*use_theme(cx).primary_color)]
+    background_color: &'a str,
+
+    /// Background color of the container (optional).
+    #[lookbook(default = &*use_theme(cx).border_radius_medium)]
+    border_radius: &'a str,
+) -> Element {
     render!(Button {
         background_color: background_color,
+        border_radius: border_radius,
         onpress: |_| {},
         label
     })
@@ -33,6 +39,7 @@ fn TabRowPreview<'a>(
         div { width: "500px",
             TabRow {
                 onselect: |_| {},
+                selected: 0,
                 tabs: cx
                     .bump()
                     .alloc(tabs.0.iter().map(|label| render!(Tab { "{label}" })).collect::<Vec<_>>())
