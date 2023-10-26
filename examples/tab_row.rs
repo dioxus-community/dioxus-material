@@ -6,6 +6,7 @@ fn app(cx: Scope) -> Element {
         Theme {
             TabRow {
                 onselect: |idx| log::info!("{}", idx),
+                selected: 0,
                 tabs: cx
                     .bump()
                     .alloc([

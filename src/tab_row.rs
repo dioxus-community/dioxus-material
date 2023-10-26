@@ -10,17 +10,18 @@ use std::{collections::HashMap, time::Duration};
 pub fn TabRow<'a>(
     cx: Scope<'a>,
     tabs: &'a [Element<'a>],
+    selected: usize,
     onselect: EventHandler<'a, usize>,
 ) -> Element<'a> {
     let sizes = use_signal(cx, HashMap::new);
-    let selected = use_state(cx, || 0);
+ 
 
     let width = sizes
         .read()
-        .get(&**selected)
+        .get(selected)
         .map(|rect: &Rect| rect.width() as f32)
         .unwrap_or_default();
-    let left: f32 = (0..**selected)
+    let left: f32 = (0..*selected)
         .map(|idx| {
             sizes
                 .read()
@@ -48,10 +49,7 @@ pub fn TabRow<'a>(
     render!(
         div { position: "relative",
             ul { display: "flex", flex_direction: "row", justify_content: "space-evenly", list_style: "none", margin: 0, padding: 0,
-                tabs.iter().enumerate().map(|(idx, tab)| render!(TabRowItem { index: idx, sizes: sizes, onselect: move |idx| {
-                    onselect.call(idx);
-                    selected.set(idx);
-                }, tab }))
+                tabs.iter().enumerate().map(|(idx, tab)| render!(TabRowItem { index: idx, sizes: sizes, onselect: move |idx| onselect.call(idx), tab }))
             }
             div { onmounted: move |event| animated_ref.onmounted(event) }
         }
