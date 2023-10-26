@@ -353,7 +353,7 @@ dependencies = [
 [[package]]
 name = "dioxus-material"
 version = "0.1.0"
-source = "git+https://github.com/matthunz/dioxus-material#c1c3a4505fa5c4248f718ae51ca604c5523cafed"
+source = "git+https://github.com/matthunz/dioxus-material#0ccf7d564281a800b2dbded8181890504141c95a"
 dependencies = [
  "dioxus",
  "dioxus-logger",
