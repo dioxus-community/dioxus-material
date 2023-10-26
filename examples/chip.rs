@@ -1,9 +1,9 @@
 use dioxus::prelude::*;
-use dioxus_material::{Chip, Theme, IconFont};
+use dioxus_material::{Chip, IconFont, Theme};
 
 fn app(cx: Scope) -> Element {
     render!(
-        Theme { 
+        Theme {
             IconFont {}
             div { display: "flex", gap: "10px",
                 Chip { onclick: |_| {}, "Asset chip" }

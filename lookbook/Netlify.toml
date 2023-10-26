@@ -1,5 +1,8 @@
+[build]
+  publish = "dist/"
+  command = "rustup default nightly && rustup target add wasm32-unknown-unknown && dx build --release"
+
 [[redirects]]
   from = "/*"
-  to = "/"
+  to = "/index.html"
   status = 200
-  force = true

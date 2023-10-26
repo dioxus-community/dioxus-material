@@ -2,7 +2,7 @@ use dioxus::prelude::*;
 use std::{borrow::Cow, rc::Rc};
 
 /// Theme component.
-/// 
+///
 /// This component provides access to [`UseTheme`](UseTheme) to its children.
 #[component]
 pub fn Theme<'a>(

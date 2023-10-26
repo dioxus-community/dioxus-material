@@ -8,10 +8,15 @@ mod dialog;
 pub use dialog::Dialog;
 
 mod icon;
-pub use icon::{IconFont, Icon};
+pub use icon::{Icon, IconFont};
 
 mod icon_kind;
 pub use icon_kind::IconKind;
+
+mod menu;
+
+mod navigation_rail;
+pub use navigation_rail::{NavigationRail, NavigationRailItem};
 
 mod ripple;
 pub use ripple::Ripple;
@@ -27,6 +32,3 @@ pub use theme::{use_theme, Theme, UseTheme};
 
 mod text_field;
 pub use text_field::TextField;
-
-mod navigation_rail;
-pub use navigation_rail::{NavigationRail, NavigationRailItem};

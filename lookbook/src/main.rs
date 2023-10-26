@@ -13,9 +13,11 @@ fn ButtonPreview(
     let theme = use_theme(cx);
     let background_color = use_state(cx, || theme.primary_color.to_string());
 
-    render!(
-        Button { background_color: background_color, onpress: |_| {}, label }
-    )
+    render!(Button {
+        background_color: background_color,
+        onpress: |_| {},
+        label
+    })
 }
 
 /// Tabs show multiple options for information.
@@ -47,9 +49,10 @@ fn TextButtonPreview(
     #[lookbook(default = "Label")]
     label: &'a str,
 ) -> Element {
-    render!(
-        TextButton { onpress: |_| {}, label }
-    )
+    render!(TextButton {
+        onpress: |_| {},
+        label
+    })
 }
 
 /// Text fields let users enter text into a UI.
@@ -62,13 +65,11 @@ fn TextFieldPreview<'a>(
 ) -> Element<'a> {
     let value = use_state(cx, || String::from("Text Field"));
 
-    render!(
-        TextField {
-            label: label,
-            value: value,
-            onchange: move |event: FormEvent| value.set(event.data.value.clone())
-        }
-    )
+    render!(TextField {
+        label: label,
+        value: value,
+        onchange: move |event: FormEvent| value.set(event.data.value.clone())
+    })
 }
 
 #[component]
@@ -89,12 +90,15 @@ fn Home(cx: Scope) -> Element {
 }
 
 fn app(cx: Scope) -> Element {
-    render!(
-        LookBook {
-            home: Home,
-            previews: [ButtonPreview, TabRowPreview, TextButtonPreview, TextFieldPreview]
-        }
-    )
+    render!(LookBook {
+        home: Home,
+        previews: [
+            ButtonPreview,
+            TabRowPreview,
+            TextButtonPreview,
+            TextFieldPreview
+        ]
+    })
 }
 
 fn main() {

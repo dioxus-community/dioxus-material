@@ -5,23 +5,23 @@ use dioxus_use_mounted::use_mounted;
 use std::time::Duration;
 
 /// Text field component.
-/// 
+///
 /// Text fields let users enter text into a UI.
-/// 
+///
 /// [material.io](https://m3.material.io/components/text-fields)
-/// 
+///
 /// ## Panics
 /// This component requires access to a [`Theme`](crate::Theme).
-/// 
+///
 /// ## Examples
 /// ```rust
 /// use dioxus::prelude::*;
 /// use dioxus_material::{TextField, Theme};
-/// 
+///
 /// fn app(cx: Scope) -> Element {
 ///     let value = use_state(cx, || String::from("Filled"));
 ///     render!(
-///         Theme { 
+///         Theme {
 ///             TextField {
 ///                 label: "Text field",
 ///                 value: "{value}",
@@ -39,7 +39,7 @@ pub fn TextField<'a>(
     onchange: EventHandler<'a, FormEvent>,
     background: Option<&'a str>,
     font_size: Option<f32>,
-    width: Option<&'a str>
+    width: Option<&'a str>,
 ) -> Element<'a> {
     let is_populated = use_state(cx, || !value.is_empty());
     let theme = use_theme(cx);

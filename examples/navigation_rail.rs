@@ -1,11 +1,11 @@
 use dioxus::prelude::*;
-use dioxus_material::{NavigationRail, NavigationRailItem, Theme, Icon, IconKind, IconFont};
+use dioxus_material::{Icon, IconFont, IconKind, NavigationRail, NavigationRailItem, Theme};
 
 fn app(cx: Scope) -> Element {
     render!(
         IconFont {}
-        Theme { 
-            NavigationRail { 
+        Theme {
+            NavigationRail {
                 NavigationRailItem {
                     icon: render!(Icon { kind : IconKind::Home }),
                     label: render!("All files"),

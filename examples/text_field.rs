@@ -4,7 +4,7 @@ use dioxus_material::{TextField, Theme};
 fn app(cx: Scope) -> Element {
     let value = use_state(cx, || String::from("Filled"));
     render!(
-        Theme { 
+        Theme {
             TextField {
                 label: "Text field",
                 value: "{value}",

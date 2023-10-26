@@ -3,7 +3,7 @@ use dioxus_material::{Tab, TabRow, Theme};
 
 fn app(cx: Scope) -> Element {
     render!(
-        Theme { 
+        Theme {
             TabRow {
                 onselect: |idx| log::info!("{}", idx),
                 tabs: cx
