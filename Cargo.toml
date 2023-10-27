@@ -13,7 +13,7 @@ members = [
 
 [dependencies]
 dioxus = { git = "https://github.com/dioxuslabs/dioxus" }
-dioxus-web = { git = "https://github.com/dioxuslabs/dioxus" }
+# dioxus-web = { git = "https://github.com/dioxuslabs/dioxus" }
 dioxus-signals = { git = "https://github.com/dioxuslabs/dioxus" }
 dioxus-use-mounted = { git = "https://github.com/matthunz/dioxus-use-mounted" }
 dioxus-spring = { git = "https://github.com/matthunz/dioxus-spring" }

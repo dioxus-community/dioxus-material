@@ -346,7 +346,6 @@ dependencies = [
  "dioxus-signals",
  "dioxus-spring",
  "dioxus-use-mounted",
- "dioxus-web",
  "log",
 ]
 

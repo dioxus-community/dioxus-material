@@ -4,6 +4,19 @@ use dioxus::prelude::*;
 /// Dialogs provide important prompts in a user flow.
 ///
 /// [material.io](https://m3.material.io/components/dialogs)
+///
+/// ```
+/// use dioxus::prelude::*;
+/// use dioxus_material::{Dialog, Theme};
+///
+/// fn app(cx: Scope) -> Element {
+///     render!(
+///         Theme {
+///             Dialog { is_visible: true, h1 { "Dialog" } }
+///         }
+///     )
+/// }
+/// ```
 #[component]
 pub fn Dialog<'a>(cx: Scope<'a>, children: Element<'a>, is_visible: bool) -> Element<'a> {
     let theme = use_theme(cx);

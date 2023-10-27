@@ -1,5 +1,5 @@
 use dioxus::prelude::*;
-use dioxus_material::{TextButton, use_theme};
+use dioxus_material::{use_theme, TextButton};
 use lookbook::preview;
 
 /// Buttons let people take action and make choices with one tap.
