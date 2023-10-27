@@ -22,12 +22,15 @@ fn Home(cx: Scope) -> Element {
 }
 
 fn app(cx: Scope) -> Element {
-    render!(
-        LookBook {
-            home: Home,
-            previews: [ButtonPreview, TabRowPreview, TextButtonPreview, TextFieldPreview]
-        }
-    )
+    render!(LookBook {
+        home: Home,
+        previews: [
+            ButtonPreview,
+            TabRowPreview,
+            TextButtonPreview,
+            TextFieldPreview
+        ]
+    })
 }
 
 fn main() {

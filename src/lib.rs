@@ -2,13 +2,13 @@ mod button;
 pub use button::{Button, ButtonProps, TextButton, TextButtonProps};
 
 mod chip;
-pub use chip::Chip;
+pub use chip::{Chip, ChipProps};
 
 mod dialog;
-pub use dialog::Dialog;
+pub use dialog::{Dialog, DialogProps};
 
 mod icon;
-pub use icon::{Icon, IconFont};
+pub use icon::{Icon, IconFont, IconProps};
 
 mod icon_kind;
 pub use icon_kind::IconKind;
@@ -16,19 +16,21 @@ pub use icon_kind::IconKind;
 mod menu;
 
 mod navigation_rail;
-pub use navigation_rail::{NavigationRail, NavigationRailItem};
+pub use navigation_rail::{
+    NavigationRail, NavigationRailItem, NavigationRailItemProps, NavigationRailProps,
+};
 
 mod ripple;
-pub use ripple::Ripple;
+pub use ripple::{Ripple, RippleProps};
 
 mod tab;
-pub use tab::Tab;
+pub use tab::{Tab, TabProps};
 
 mod tab_row;
-pub use tab_row::TabRow;
+pub use tab_row::{TabRow, TabRowProps};
 
 mod theme;
-pub use theme::{use_theme, Theme, UseTheme};
+pub use theme::{use_theme, Theme, ThemeProps, UseTheme};
 
 mod text_field;
 pub use text_field::TextField;
