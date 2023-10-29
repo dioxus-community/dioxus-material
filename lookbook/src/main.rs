@@ -2,7 +2,7 @@ use dioxus::prelude::*;
 use lookbook::LookBook;
 
 mod previews;
-use previews::{ButtonPreview, TabRowPreview, TextButtonPreview, TextFieldPreview};
+use previews::{ButtonPreview, ChipPreview,TabRowPreview, TextButtonPreview, TextFieldPreview};
 
 #[component]
 fn Home(cx: Scope) -> Element {
@@ -22,15 +22,12 @@ fn Home(cx: Scope) -> Element {
 }
 
 fn app(cx: Scope) -> Element {
-    render!(LookBook {
-        home: Home,
-        previews: [
-            ButtonPreview,
-            TabRowPreview,
-            TextButtonPreview,
-            TextFieldPreview
-        ]
-    })
+    render!(
+        LookBook {
+            home: Home,
+            previews: [ButtonPreview, ChipPreview, TabRowPreview, TextButtonPreview, TextFieldPreview]
+        }
+    )
 }
 
 fn main() {

@@ -1,6 +1,9 @@
 mod button;
 pub use button::ButtonPreview;
 
+mod chip;
+pub use chip::ChipPreview;
+
 mod tab_row;
 pub use tab_row::TabRowPreview;
 

@@ -18,10 +18,7 @@ pub fn ButtonPreview(
     #[lookbook(default = &*use_theme(cx).border_radius_medium)]
     border_radius: &'a str,
 ) -> Element {
-    render!(Button {
-        background_color: background_color,
-        border_radius: border_radius,
-        onpress: |_| {},
-        label
-    })
+    render!(
+        Button { background_color: background_color, border_radius: border_radius, onpress: |_| {}, label }
+    )
 }

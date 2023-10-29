@@ -12,9 +12,11 @@ pub fn TextFieldPreview<'a>(
 ) -> Element<'a> {
     let value = use_state(cx, || String::from("Text Field"));
 
-    render!(TextField {
-        label: label,
-        value: value,
-        onchange: move |event: FormEvent| value.set(event.data.value.clone())
-    })
+    render!(
+        TextField {
+            label: label,
+            value: value,
+            onchange: move |event: FormEvent| value.set(event.data.value.clone())
+        }
+    )
 }

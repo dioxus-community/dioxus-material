@@ -51,19 +51,21 @@ pub fn Chip<'a>(
             height: "32px",
             line_height: "32px",
             border_radius: "{theme.border_radius_small}",
-            padding: "0 14px",
             font_family: "sans-serif",
             font_size: "14px",
             font_weight: 500,
             border: "1px solid {border_color}",
             background: background,
             Ripple { onclick: |event| onclick.call(event),
-                if *is_selected == Some(true) {
-                    render!(Icon { kind: IconKind::Check })
-                } else {
-                    None
+                div { display: "inline-flex", flex_direction: "row", align_items: "center",
+                    if *is_selected == Some(true) {
+                        render!(Icon { kind: IconKind::Check })
+                    } else {
+                        None
+                    }
+
+                    div { padding: "0 14px", children }
                 }
-                children
             }
         }
     )
