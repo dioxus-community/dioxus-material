@@ -34,3 +34,6 @@ pub use theme::{use_theme, Theme, ThemeProps, UseTheme};
 
 mod text_field;
 pub use text_field::TextField;
+
+mod use_ripple;
+pub use use_ripple::{use_ripple, UseRipple};
