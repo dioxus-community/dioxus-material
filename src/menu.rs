@@ -1,6 +1,6 @@
 use dioxus::prelude::*;
 
 #[component]
-pub fn Menu(_cx: Scope) -> Element {
+pub fn Menu() -> Element {
     todo!()
 }

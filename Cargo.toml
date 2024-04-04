@@ -12,11 +12,9 @@ members = [
 ]
 
 [dependencies]
-dioxus = { git = "https://github.com/dioxuslabs/dioxus" }
-# dioxus-web = { git = "https://github.com/dioxuslabs/dioxus" }
-dioxus-signals = { git = "https://github.com/dioxuslabs/dioxus" }
-dioxus-use-mounted = { git = "https://github.com/matthunz/dioxus-use-mounted" }
+dioxus = "0.5.0"
+dioxus-use-mounted = "0.2.0"
 dioxus-spring = { git = "https://github.com/matthunz/dioxus-spring" }
-dioxus-resize-observer = { git = "https://github.com/dioxus-community/dioxus-resize-observer" }
+dioxus-resize-observer = "0.2.0"
 log = "0.4.20"
 dioxus-logger = "0.4.1"

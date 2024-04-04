@@ -17,7 +17,7 @@ use dioxus::prelude::*;
 /// use dioxus_material::{Chip, Theme, IconFont};
 ///
 /// fn app(cx: Scope) -> Element {
-///     render!(Theme {
+///     rsx!(Theme {
 ///         IconFont {}
 ///         div { display: "flex", gap: "10px",
 ///             Chip { onclick: |_| {}, "Asset chip" }
@@ -27,14 +27,13 @@ use dioxus::prelude::*;
 /// }
 /// ```
 #[component]
-pub fn Chip<'a>(
-    cx: Scope,
-    children: Element<'a>,
+pub fn Chip(
+    children: Element,
     is_selected: Option<bool>,
-    onclick: EventHandler<'a, Event<MouseData>>,
-) -> Element<'a> {
-    let theme = use_theme(cx);
-    let (border_color, background) = if *is_selected == Some(true) {
+    onclick: EventHandler<Event<MouseData>>,
+) -> Element {
+    let theme = use_theme();
+    let (border_color, background) = if is_selected == Some(true) {
         (
             &*theme.secondary_container_color,
             &*theme.secondary_container_color,
@@ -43,7 +42,7 @@ pub fn Chip<'a>(
         ("#79747E", "none")
     };
 
-    render!(
+    rsx!(
         div {
             display: "inline-flex",
             flex_direction: "row",
@@ -55,16 +54,17 @@ pub fn Chip<'a>(
             font_size: "14px",
             font_weight: 500,
             border: "1px solid {border_color}",
-            background: background,
-            Ripple { onclick: |event| onclick.call(event),
-                div { display: "inline-flex", flex_direction: "row", align_items: "center",
-                    if *is_selected == Some(true) {
-                        render!(Icon { kind: IconKind::Check })
-                    } else {
-                        None
+            background,
+            Ripple { onclick: move |event| onclick.call(event),
+                div {
+                    display: "inline-flex",
+                    flex_direction: "row",
+                    align_items: "center",
+                    if is_selected == Some(true) {
+                        Icon { kind: IconKind::Check }
                     }
 
-                    div { padding: "0 14px", children }
+                    div { padding: "0 14px", {children} }
                 }
             }
         }

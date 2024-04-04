@@ -2,8 +2,8 @@ use crate::use_theme;
 use dioxus::prelude::*;
 
 #[component]
-pub fn NavigationRail<'a>(cx: Scope<'a>, children: Element<'a>) -> Element<'a> {
-    render!(
+pub fn NavigationRail(children: Element) -> Element {
+    rsx!(
         nav {
             ul {
                 display: "flex",
@@ -13,23 +13,22 @@ pub fn NavigationRail<'a>(cx: Scope<'a>, children: Element<'a>) -> Element<'a> {
                 list_style: "none",
                 margin: 0,
                 padding: "0 10px",
-                children
+                {children}
             }
         }
     )
 }
 
 #[component]
-pub fn NavigationRailItem<'a>(
-    cx: Scope<'a>,
-    icon: Element<'a>,
-    label: Element<'a>,
+pub fn NavigationRailItem(
+    icon: Element,
+    label: Element,
     is_selected: bool,
-    onselect: EventHandler<'a, MouseEvent>,
-) -> Element<'a> {
-    let theme = use_theme(cx);
+    onselect: EventHandler<MouseEvent>,
+) -> Element {
+    let theme = use_theme();
 
-    render!(
+    rsx!(
         li {
             display: "flex",
             flex_direction: "column",
@@ -45,10 +44,15 @@ pub fn NavigationRailItem<'a>(
                 padding: "5px 0",
                 text_align: "center",
                 border_radius: "{theme.border_radius_medium}",
-                background: if *is_selected { &theme.secondary_container_color } else { "" },
-                icon
+                background: if is_selected { &theme.secondary_container_color } else { "" },
+                {icon}
             }
-            div { margin_top: "5px", font_size: "{theme.label_small}px", line_height: "16px", label }
+            div {
+                margin_top: "5px",
+                font_size: "{theme.label_small}px",
+                line_height: "16px",
+                {label}
+            }
         }
     )
 }

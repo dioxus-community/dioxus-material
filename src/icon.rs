@@ -3,8 +3,8 @@ use dioxus::prelude::*;
 
 /// Material Symbols icon font.
 #[component]
-pub fn IconFont(cx: Scope) -> Element {
-    render!(
+pub fn IconFont() -> Element {
+    rsx!(
         link {
             href: "https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200",
             rel: "stylesheet"
@@ -15,8 +15,6 @@ pub fn IconFont(cx: Scope) -> Element {
 /// Material Symbols icon.
 #[component]
 pub fn Icon(
-    cx: Scope,
-
     /// Kind of icon.
     kind: IconKind,
 
@@ -29,10 +27,11 @@ pub fn Icon(
     /// Optical size of the icon (optional).
     size: Option<f32>,
 ) -> Element {
-    let font_variation_settings = use_memo(cx, (is_filled, weight, size), move |_| {
+    // TODO memo
+    let font_variation_settings = {
         let mut s = String::new();
         let mut is_first = true;
-        if *is_filled == Some(true) {
+        if is_filled == Some(true) {
             if !is_first {
                 s.push_str(", ");
             }
@@ -53,13 +52,13 @@ pub fn Icon(
             s.push_str(&format!("'opsz' {}", size));
         }
         s
-    });
+    };
 
-    render!(
+    rsx!(
         span {
             class: "material-symbols-rounded",
             style: "font-variation-settings: {font_variation_settings};",
-            kind.name()
+            { kind.name()}
         }
     )
 }

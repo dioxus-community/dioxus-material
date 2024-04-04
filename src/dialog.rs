@@ -10,7 +10,7 @@ use dioxus::prelude::*;
 /// use dioxus_material::{Dialog, Theme};
 ///
 /// fn app(cx: Scope) -> Element {
-///     render!(
+///     rsx!(
 ///         Theme {
 ///             Dialog { is_visible: true, h1 { "Dialog" } }
 ///         }
@@ -18,12 +18,12 @@ use dioxus::prelude::*;
 /// }
 /// ```
 #[component]
-pub fn Dialog<'a>(cx: Scope<'a>, children: Element<'a>, is_visible: bool) -> Element<'a> {
-    let theme = use_theme(cx);
+pub fn Dialog(children: Element, is_visible: bool) -> Element {
+    let theme = use_theme();
 
-    render!(
+    rsx!(
         div {
-            display: if *is_visible { "block" } else { "none" },
+            display: if is_visible { "block" } else { "none" },
             position: "fixed",
             top: 0,
             left: 0,
@@ -37,7 +37,7 @@ pub fn Dialog<'a>(cx: Scope<'a>, children: Element<'a>, is_visible: bool) -> Ele
                 transform: "translate(-50%, -50%)",
                 border_radius: "{theme.border_radius_medium}",
                 background: "#fff",
-                children
+                {children}
             }
         }
     )

@@ -13,9 +13,10 @@ pub fn ChipPreview(
     /// Background color of the container (optional).
     #[lookbook(default = false)]
     is_selected: Json<bool>,
-
 ) -> Element {
-    render!(
-        Chip { is_selected: is_selected.0, onclick: |_| {}, label }
-    )
+    rsx!(Chip {
+        is_selected: is_selected.0,
+        onclick: |_| {},
+        label
+    })
 }

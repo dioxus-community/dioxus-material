@@ -2,11 +2,11 @@ use dioxus::prelude::*;
 use lookbook::LookBook;
 
 mod previews;
-use previews::{ButtonPreview, ChipPreview,TabRowPreview, TextButtonPreview, TextFieldPreview};
+use previews::{ButtonPreview, ChipPreview, TabRowPreview, TextButtonPreview, TextFieldPreview};
 
 #[component]
 fn Home(cx: Scope) -> Element {
-    render!(
+    rsx!(
         div { padding: "20px",
             h1 { "Dioxus Material" }
             h5 { "Material You design library for dioxus." }
@@ -22,12 +22,16 @@ fn Home(cx: Scope) -> Element {
 }
 
 fn app(cx: Scope) -> Element {
-    render!(
-        LookBook {
-            home: Home,
-            previews: [ButtonPreview, ChipPreview, TabRowPreview, TextButtonPreview, TextFieldPreview]
-        }
-    )
+    rsx!(LookBook {
+        home: Home,
+        previews: [
+            ButtonPreview,
+            ChipPreview,
+            TabRowPreview,
+            TextButtonPreview,
+            TextFieldPreview
+        ]
+    })
 }
 
 fn main() {

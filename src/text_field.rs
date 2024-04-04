@@ -20,7 +20,7 @@ use std::time::Duration;
 ///
 /// fn app(cx: Scope) -> Element {
 ///     let value = use_state(cx, || String::from("Filled"));
-///     render!(
+///     rsx!(
 ///         Theme {
 ///             TextField {
 ///                 label: "Text field",
@@ -32,22 +32,20 @@ use std::time::Duration;
 /// }
 /// ```
 #[component]
-pub fn TextField<'a>(
-    cx: Scope<'a>,
-    label: &'a str,
-    value: &'a str,
-    onchange: EventHandler<'a, FormEvent>,
-    background: Option<&'a str>,
+pub fn TextField(
+    label: String,
+    value: String,
+    onchange: EventHandler<FormEvent>,
+    background: Option<String>,
     font_size: Option<f32>,
-    width: Option<&'a str>,
-) -> Element<'a> {
-    let is_populated = use_state(cx, || !value.is_empty());
-    let theme = use_theme(cx);
+    width: Option<String>,
+) -> Element {
+    let mut is_populated = use_signal(|| !value.is_empty());
+    let theme = use_theme();
 
     let font_size = font_size.unwrap_or(theme.label_medium);
     let spring = use_spring(
-        cx,
-        if **is_populated {
+        if is_populated() {
             [10f32, 12f32, 16f32]
         } else {
             [20., font_size, 24.]
@@ -55,8 +53,8 @@ pub fn TextField<'a>(
         Duration::from_millis(50),
     );
 
-    let mounted = use_mounted(cx);
-    use_animated(cx, mounted, spring, |[top, font_size, line_height]| {
+    let mounted = use_mounted();
+    use_animated(mounted, spring, |[top, font_size, line_height]| {
         format!(
             r"
             position: absolute;
@@ -68,14 +66,14 @@ pub fn TextField<'a>(
         )
     });
 
-    let background = background.unwrap_or(&theme.background_color);
-    let width = width.unwrap_or("200px");
+    let background = background.as_deref().unwrap_or(&theme.background_color);
+    let width = width.as_deref().unwrap_or("200px");
 
-    render!(
+    rsx!(
         div {
             position: "relative",
             display: "flex",
-            width: width,
+            width,
             background: "{background}",
             font_family: "sans-serif",
             border_bottom: "2px solid #999",
@@ -84,7 +82,7 @@ pub fn TextField<'a>(
                 position: "relative",
                 z_index: 9,
                 r#type: "text",
-                value: *value,
+                value: value.clone(),
                 padding: "10px 20px",
                 padding_top: "30px",
                 font_size: "{font_size}px",
@@ -93,12 +91,12 @@ pub fn TextField<'a>(
                 outline: "none",
                 background: "none",
                 onfocusin: move |_| {
-                    if !is_populated {
+                    if !is_populated() {
                         is_populated.set(true)
                     }
                 },
                 onfocusout: move |_| {
-                    if **is_populated && value.is_empty() {
+                    if is_populated() && value.is_empty() {
                         is_populated.set(false)
                     }
                 },

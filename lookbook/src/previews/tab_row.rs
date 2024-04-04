@@ -14,15 +14,14 @@ pub fn TabRowPreview<'a>(
     /// Tab elements.
     #[lookbook(default = vec![String::from("Tab A"), String::from("Tab B")])]
     tabs: Json<Vec<String>>,
-) -> Element<'a> {
-    render!(
+) -> Element {
+    rsx!(
         div { width: "500px",
             TabRow {
                 onselect: |_| {},
                 selected: selected.0,
-                tabs: cx
-                    .bump()
-                    .alloc(tabs.0.iter().map(|label| render!(Tab { "{label}" })).collect::<Vec<_>>())
+                tabs: cx.bump()
+                    .alloc(tabs.0.iter().map(|label| rsx!(Tab { "{label}" })).collect::<Vec<_>>())
             }
         }
     )

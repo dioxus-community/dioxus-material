@@ -18,7 +18,10 @@ pub fn TextButtonPreview(
     #[lookbook(default = &*use_theme(cx).border_radius_medium)]
     border_radius: &'a str,
 ) -> Element {
-    render!(
-        TextButton { color: color, border_radius: border_radius, onpress: |_| {}, label }
-    )
+    rsx!(TextButton {
+        color,
+        border_radius,
+        onpress: |_| {},
+        label
+    })
 }

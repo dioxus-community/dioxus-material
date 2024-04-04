@@ -16,36 +16,36 @@ use dioxus::prelude::*;
 /// use dioxus_material::{Button, Theme};
 ///
 /// fn app(cx: Scope) -> Element {
-///    render!(Theme {
+///    rsx!(Theme {
 ///         Button { onpress: |_| log::info!("clicked!"), "Click me!" } }
 ///    )
 /// }
 /// ```
 #[component]
-pub fn Button<'a>(
-    cx: Scope<'a>,
-
+pub fn Button(
     /// Handler for button press events.
-    onpress: EventHandler<'a, Event<MouseData>>,
+    onpress: EventHandler<Event<MouseData>>,
 
     /// Label child element.
-    children: Element<'a>,
+    children: Element,
 
     /// Background color of the container (optional).
-    background_color: Option<&'a str>,
+    background_color: Option<String>,
 
     /// Border radius of the container (optional).
-    border_radius: Option<&'a str>,
+    border_radius: Option<String>,
 
     /// Height of the container (optional).
-    height: Option<&'a str>,
-) -> Element<'a> {
-    let theme = use_theme(cx);
-    let background_color = background_color.unwrap_or(&theme.primary_color);
-    let border_radius = border_radius.unwrap_or(&theme.border_radius_medium);
-    let height = height.unwrap_or("50px");
+    height: Option<String>,
+) -> Element {
+    let theme = use_theme();
+    let background_color = background_color.as_deref().unwrap_or(&theme.primary_color);
+    let border_radius = border_radius
+        .as_deref()
+        .unwrap_or(&theme.border_radius_medium);
+    let height = height.as_deref().unwrap_or("50px");
 
-    render!(
+    rsx!(
         div {
             display: "inline-block",
             position: "relative",
@@ -64,7 +64,7 @@ pub fn Button<'a>(
                     font_family: "sans-serif",
                     user_select: "none",
                     webkit_user_select: "none",
-                    children
+                    {children}
                 }
             }
         }
@@ -72,30 +72,30 @@ pub fn Button<'a>(
 }
 
 #[component]
-pub fn TextButton<'a>(
-    cx: Scope<'a>,
-
+pub fn TextButton(
     /// Handler for button press events.
-    onpress: EventHandler<'a, Event<MouseData>>,
+    onpress: EventHandler<Event<MouseData>>,
 
     /// Label child element.
-    children: Element<'a>,
+    children: Element,
 
     /// Border radiusof the container (optional).
-    border_radius: Option<&'a str>,
+    border_radius: Option<String>,
 
     /// Text color (optional).
-    color: Option<&'a str>,
+    color: Option<String>,
 
     /// Height of the container (optional).
-    height: Option<&'a str>,
-) -> Element<'a> {
-    let theme = use_theme(cx);
-    let color = color.unwrap_or(&theme.primary_color);
-    let border_radius = border_radius.unwrap_or(&theme.border_radius_medium);
-    let height = height.unwrap_or("40px");
+    height: Option<String>,
+) -> Element {
+    let theme = use_theme();
+    let color = color.as_deref().unwrap_or(&theme.primary_color);
+    let border_radius = border_radius
+        .as_deref()
+        .unwrap_or(&theme.border_radius_medium);
+    let height = height.as_deref().unwrap_or("40px");
 
-    render!(
+    rsx!(
         div {
             display: "inline-block",
             position: "relative",
@@ -114,7 +114,7 @@ pub fn TextButton<'a>(
                     font_family: "sans-serif",
                     user_select: "none",
                     webkit_user_select: "none",
-                    children
+                    {children}
                 }
             }
         }

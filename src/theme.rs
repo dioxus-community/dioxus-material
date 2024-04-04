@@ -5,9 +5,7 @@ use std::{borrow::Cow, rc::Rc};
 ///
 /// This component provides access to [`UseTheme`](UseTheme) to its children.
 #[component]
-pub fn Theme<'a>(
-    cx: Scope<'a>,
-
+pub fn Theme(
     /// Primary color.
     #[props(into, default = Cow::Borrowed("#6750A4"))]
     primary_color: Cow<'static, str>,
@@ -36,21 +34,21 @@ pub fn Theme<'a>(
     #[props(default = 16.)]
     label_medium: f32,
 
-    children: Element<'a>,
-) -> Element<'a> {
-    use_context_provider(cx, move || {
+    children: Element,
+) -> Element {
+    use_context_provider(move || {
         Rc::new(UseTheme {
             primary_color: primary_color.clone(),
             background_color: background_color.clone(),
             secondary_container_color: secondary_container_color.clone(),
             border_radius_medium: border_radius_medium.clone(),
             border_radius_small: border_radius_small.clone(),
-            label_small: *label_small,
-            label_medium: *label_medium,
+            label_small,
+            label_medium,
         })
     });
 
-    render!(children)
+    children
 }
 
 pub struct UseTheme {
@@ -63,7 +61,6 @@ pub struct UseTheme {
     pub label_medium: f32,
 }
 
-pub fn use_theme<T>(cx: Scope<T>) -> &UseTheme {
-    let rc: &Rc<UseTheme> = use_context(cx).unwrap();
-    rc.as_ref()
+pub fn use_theme() -> Rc<UseTheme> {
+    use_context()
 }
