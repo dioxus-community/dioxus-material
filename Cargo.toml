@@ -8,13 +8,13 @@ license = "MIT OR Apache-2.0"
 [workspace]
 members = [
     ".",
-    "lookbook"
+    # "lookbook"
 ]
 
 [dependencies]
-dioxus = "0.5.0"
-dioxus-use-mounted = "0.2.0"
+dioxus = { git = "https://github.com/DioxusLabs/dioxus" }
+dioxus-use-mounted = { git = "https://github.com/matthunz/dioxus-use-mounted" }
 dioxus-spring = { git = "https://github.com/matthunz/dioxus-spring" }
-dioxus-resize-observer = "0.2.0"
+dioxus-resize-observer = { git = "https://github.com/dioxus-community/dioxus-resize-observer", rev = "1a16141a63dbb17230a3dacc97d949861aa2125f" }
 log = "0.4.20"
 dioxus-logger = "0.4.1"

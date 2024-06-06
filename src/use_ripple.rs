@@ -1,6 +1,6 @@
 use dioxus::prelude::*;
 use dioxus_resize_observer::use_size;
-use dioxus_spring::{use_animated, use_spring_signal, UseSpringSignal};
+use dioxus_spring::{use_animated, use_spring_signal, UseSpringRef, };
 use dioxus_use_mounted::{use_mounted, UseMounted};
 use std::time::Duration;
 
@@ -12,7 +12,7 @@ pub fn use_ripple(duration: Duration) -> UseRipple {
     let content_rect = use_size(container_ref);
     let size = content_rect.width().max(content_rect.height()) * 1.2;
 
-    let (spring_ref, value_ref) = use_spring_signal([0f32; 2]);
+    let ( value_ref, spring_ref) = use_spring_signal([0f32; 2]);
     let animated_ref = use_mounted();
 
     use_animated(animated_ref, value_ref, |[size, opacity]| {
@@ -43,7 +43,7 @@ pub fn use_ripple(duration: Duration) -> UseRipple {
 
 #[derive(Clone, Copy)]
 pub struct UseRipple {
-    pub spring_ref: UseSpringSignal<[f32; 2]>,
+    pub spring_ref: UseSpringRef<[f32; 2]>,
     pub size: f64,
     pub is_pressed: Signal<bool>,
     pub duration: Duration,
