@@ -1,7 +1,7 @@
 [package]
 name = "dioxus-material"
 description = "Animation library for Dioxus"
-version = "0.1.0"
+version = "0.2.0"
 edition = "2021"
 license = "MIT OR Apache-2.0"
 
@@ -12,9 +12,12 @@ members = [
 ]
 
 [dependencies]
-dioxus = { git = "https://github.com/DioxusLabs/dioxus" }
-dioxus-use-mounted = { git = "https://github.com/matthunz/dioxus-use-mounted" }
-dioxus-spring = { git = "https://github.com/matthunz/dioxus-spring" }
-dioxus-resize-observer = { git = "https://github.com/dioxus-community/dioxus-resize-observer", rev = "1a16141a63dbb17230a3dacc97d949861aa2125f" }
-log = "0.4.20"
-dioxus-logger = "0.4.1"
+dioxus = "0.5.1"
+dioxus-use-mounted = "0.2.1"
+dioxus-spring = "0.2.0"
+dioxus-resize-observer = "0.2.1"
+log = "0.4.22"
+dioxus-logger = "0.5.1"
+
+[dev-dependencies]
+dioxus = { version = "0.5.1", features = ["web"] }
