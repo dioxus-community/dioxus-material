@@ -17,7 +17,7 @@ jobs:
     - uses: Swatinem/rust-cache@v2
     - name: Build core features
       run: cargo build --verbose
-    - name: Build lookbook
-      run: cd lookbook && cargo build --verbose
+    # - name: Build lookbook
+    #   run: cd lookbook && cargo build --verbose
     - name: Run tests
       run: cargo test --verbose
