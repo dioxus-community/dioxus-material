@@ -379,9 +379,9 @@ dependencies = [
 
 [[package]]
 name = "dioxus"
-version = "0.6.0-alpha.1"
+version = "0.6.0-alpha.2"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "5378dd1f4551e8a57ed9c65cd74e61298dee73dfb0bb79319bd89cbf9761efc6"
+checksum = "cf1eb44084236d71d073adc254f165f4588d9b871b30fee3633c0e8ee436e5c7"
 dependencies = [
  "dioxus-config-macro",
  "dioxus-core",
@@ -422,15 +422,16 @@ dependencies = [
 
 [[package]]
 name = "dioxus-core"
-version = "0.6.0-alpha.0"
+version = "0.6.0-alpha.2"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "07ec4a92204aaec8d9b24fa3a00d99a3b625748ab03f1a40cc191af25c252017"
+checksum = "7a13d0f930e664295f6efb71f3cea5f4ac6a924dab1c27bce8c5017e7b25d6a0"
 dependencies = [
  "const_format",
  "futures-channel",
  "futures-util",
  "generational-box",
  "longest-increasing-subsequence",
+ "manganis",
  "rustc-hash",
  "rustversion",
  "serde",
@@ -607,7 +608,7 @@ dependencies = [
 
 [[package]]
 name = "dioxus-material"
-version = "0.3.0-alpha.1"
+version = "0.3.0-alpha.2"
 dependencies = [
  "dioxus",
  "dioxus-logger 0.5.1",
@@ -619,9 +620,9 @@ dependencies = [
 
 [[package]]
 name = "dioxus-resize-observer"
-version = "0.3.0-alpha.1"
+version = "0.3.0-alpha.3"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "f1a5053a9e4d622f782aeb7c70c0a786b8274be148f1e6c64a894e3f30f49e13"
+checksum = "16ac4465ac6e666ea47a572b5017a7e56a646abec67c3d1e854bfdd701a7d5ac"
 dependencies = [
  "dioxus",
  "dioxus-use-mounted",
@@ -699,16 +700,14 @@ dependencies = [
 
 [[package]]
 name = "dioxus-spring"
-version = "0.3.0-alpha.1"
+version = "0.3.0-alpha.3"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "fda406387ca7b443bc182f6fd04ae35f1506007377ebe2a18e0b04490b58a644"
+checksum = "74c4c4667304f3ab59fde91abc33a030d4e44f9f35db7128b5a2efd8b02c1bde"
 dependencies = [
  "async-channel",
  "dioxus",
  "dioxus-logger 0.4.1",
- "dioxus-signals",
  "dioxus-use-mounted",
- "dioxus-web",
  "futures",
  "interpolation",
  "js-sys",
@@ -733,9 +732,9 @@ dependencies = [
 
 [[package]]
 name = "dioxus-use-mounted"
-version = "0.3.0-alpha.1"
+version = "0.3.0-alpha.3"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "ad6bcb4538e1ec16fbebc937e30a41a1fbcc882064a38040df31df29db2f9d4b"
+checksum = "2483b57b229cc108f28ff56a57698e59a05b703944c0bc5776c5a94f0a11598e"
 dependencies = [
  "dioxus",
 ]
@@ -1564,18 +1563,18 @@ dependencies = [
 
 [[package]]
 name = "manganis"
-version = "0.3.0-alpha.0"
+version = "0.3.0-alpha.1"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "578cb1a3a1a7dfad59feaa34eb928855e7f7d09a031db913b84ac2cc10fdfb84"
+checksum = "10870c8dbbfa53eaad99e7cc0689de6f2033d8769e02df28cb681b437e159473"
 dependencies = [
  "manganis-macro",
 ]
 
 [[package]]
 name = "manganis-common"
-version = "0.3.0-alpha.0"
+version = "0.3.0-alpha.1"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "86a1bfc5ff78ac6ade38584b033952f7cef921b90db6d5ac2016bc30caf47f8b"
+checksum = "d9be0dd0eaf5ce21947bcc38131d7934a1f573b76e6e44fe9e401cb27dcb33cf"
 dependencies = [
  "anyhow",
  "base64 0.21.7",
@@ -1591,9 +1590,9 @@ dependencies = [
 
 [[package]]
 name = "manganis-macro"
-version = "0.3.0-alpha.0"
+version = "0.3.0-alpha.1"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "046c953865755a7b4e41f3680a2659833b41fdb171a0bffbaeba8b8237319924"
+checksum = "3ca00f3c266ba409900d32707f4bc66a60fbb707cf9d4d8d44d8e265c431c149"
 dependencies = [
  "manganis-common",
  "proc-macro2",
