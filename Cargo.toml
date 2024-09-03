@@ -4,6 +4,7 @@ description = "Animation library for Dioxus"
 version = "0.3.0-alpha.2"
 edition = "2021"
 license = "MIT OR Apache-2.0"
+repository = "https://github.com/dioxus-community/dioxus-material"
 
 [workspace]
 members = [
