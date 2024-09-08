@@ -16,8 +16,8 @@
     <img src="https://img.shields.io/badge/lookbook%20%F0%9F%91%80-purple"
       alt="lookbook docs" />
   </a>
-   <a href="https://github.com/matthunz/dioxus-material/actions">
-    <img src="https://github.com/matthunz/dioxus-material/actions/workflows/ci.yml/badge.svg"
+   <a href="https://github.com/dioxus-community/dioxus-material/actions">
+    <img src="https://github.com/dioxus-community/dioxus-material/actions/workflows/ci.yml/badge.svg"
       alt="CI status" />
   </a>
 </div>
@@ -27,6 +27,6 @@
 [Material You](https://m3.material.io/) components for [Dioxus](https://dioxuslabs.com/).
 
 ## Lookbook
-This crate uses [lookbook](https://github.com/matthunz/lookbook) for component previews and testing.
+This crate uses [lookbook](https://github.com/dioxus-community/lookbook) for component previews and testing.
 You can check out the [live version](https://dioxus-material-lookbook.netlify.app)
 or run it yourself by running `dx serve` in the `lookbook` directory.
