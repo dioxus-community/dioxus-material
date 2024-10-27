@@ -44,7 +44,7 @@ pub fn NavigationRailItem(
                 padding: "5px 0",
                 text_align: "center",
                 border_radius: "{theme.border_radius_medium}",
-                background: if is_selected { &theme.secondary_container_color } else { "" },
+                background: if is_selected { Some(theme.secondary_container_color.to_string()) } else { None },
                 {icon}
             }
             div {
