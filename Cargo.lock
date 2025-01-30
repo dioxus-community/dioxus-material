@@ -584,7 +584,9 @@ dependencies = [
 
 [[package]]
 name = "dioxus-spring"
-version = "0.3.0-alpha.4"
+version = "0.3.0"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "8c9e0e37d379f689288ec61214104a72de3537709f2b7f0a77085f2de24a8507"
 dependencies = [
  "async-channel",
  "dioxus",
