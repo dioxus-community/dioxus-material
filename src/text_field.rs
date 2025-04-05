@@ -18,14 +18,14 @@ use std::time::Duration;
 /// use dioxus::prelude::*;
 /// use dioxus_material::{TextField, Theme};
 ///
-/// fn app(cx: Scope) -> Element {
-///     let value = use_state(cx, || String::from("Filled"));
+/// fn app() -> Element {
+///     let mut value = use_signal(|| String::from("Filled"));
 ///     rsx!(
 ///         Theme {
 ///             TextField {
 ///                 label: "Text field",
 ///                 value: "{value}",
-///                 onchange: move |event: FormEvent| value.set(event.value.clone())
+///                 onchange: move |event: FormEvent| value.set(event.value())
 ///             }
 ///         }
 ///     )

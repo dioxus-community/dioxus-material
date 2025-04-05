@@ -16,7 +16,7 @@ use dioxus::prelude::*;
 /// use dioxus::prelude::*;
 /// use dioxus_material::{Chip, Theme, IconFont};
 ///
-/// fn app(cx: Scope) -> Element {
+/// fn app() -> Element {
 ///     rsx!(Theme {
 ///         IconFont {}
 ///         div { display: "flex", gap: "10px",

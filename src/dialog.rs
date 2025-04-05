@@ -9,7 +9,7 @@ use dioxus::prelude::*;
 /// use dioxus::prelude::*;
 /// use dioxus_material::{Dialog, Theme};
 ///
-/// fn app(cx: Scope) -> Element {
+/// fn app() -> Element {
 ///     rsx!(
 ///         Theme {
 ///             Dialog { is_visible: true, h1 { "Dialog" } }

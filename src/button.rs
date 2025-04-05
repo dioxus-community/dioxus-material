@@ -15,7 +15,7 @@ use dioxus::prelude::*;
 /// use dioxus::prelude::*;
 /// use dioxus_material::{Button, Theme};
 ///
-/// fn app(cx: Scope) -> Element {
+/// fn app() -> Element {
 ///    rsx!(Theme {
 ///         Button { onpress: |_| log::info!("clicked!"), "Click me!" } }
 ///    )
