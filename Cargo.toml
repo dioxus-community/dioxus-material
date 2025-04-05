@@ -13,9 +13,20 @@ members = [
 ]
 
 [dependencies]
-dioxus = { version = "0.6.0-alpha.3", features = ["web"] }
-dioxus-use-mounted = "0.3.0-alpha.4"
-dioxus-spring = "0.3.0-alpha.4"
-dioxus-resize-observer = "0.3.0-alpha.4"
+dioxus = { version = "0.6.2", features = ["web"] }
+dioxus-use-mounted = "0.3.0"
+dioxus-spring = "0.3.0"
+dioxus-resize-observer = "0.3.0"
 log = "0.4.22"
-dioxus-logger = "0.5.1"
+
+[profile]
+
+[profile.wasm-dev]
+inherits = "dev"
+opt-level = 1
+
+[profile.server-dev]
+inherits = "dev"
+
+[profile.android-dev]
+inherits = "dev"
